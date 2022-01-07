@@ -37,13 +37,11 @@ int	key_hook(int keycode, t_vars *vars)
 {
 	static int a = 1;
 	static int c = 1;
-	int b = 1;
+	int b;
 	if (keycode == 126)
 	{
 		b = 1;
 		mlx_clear_window(vars->mlx, vars->win);
-		vars->img4 = mlx_xpm_file_to_image(vars->mlx, vars->path4, &vars->width, &vars->height);
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->img4, 580, 560);
 		while (b < 1000)
 		{	
 			mlx_put_image_to_window(vars->mlx, vars->win, vars->img2, b, 625);
@@ -55,8 +53,6 @@ int	key_hook(int keycode, t_vars *vars)
 	else if (keycode == 123)
 	{
 		mlx_clear_window(vars->mlx, vars->win);
-		vars->img4 = mlx_xpm_file_to_image(vars->mlx, vars->path4, &vars->width, &vars->height);
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->img4, 580, 560);
 		while (b < 1000)
 		{	
 			mlx_put_image_to_window(vars->mlx, vars->win, vars->img2, b, 625);
@@ -69,8 +65,6 @@ int	key_hook(int keycode, t_vars *vars)
 	{
 		b = 1;
 		mlx_clear_window(vars->mlx, vars->win);
-		vars->img4 = mlx_xpm_file_to_image(vars->mlx, vars->path4, &vars->width, &vars->height);
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->img4, 580, 560);
 		while (b < 1000)
 		{	
 			mlx_put_image_to_window(vars->mlx, vars->win, vars->img2, b, 625);
@@ -83,8 +77,6 @@ int	key_hook(int keycode, t_vars *vars)
 	{
 		b = 1;
 		mlx_clear_window(vars->mlx, vars->win);
-		vars->img4 = mlx_xpm_file_to_image(vars->mlx, vars->path4, &vars->width, &vars->height);
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->img4, 580, 560);
 		while (b < 1000)
 		{	
 			mlx_put_image_to_window(vars->mlx, vars->win, vars->img2, b, 625);
@@ -96,42 +88,25 @@ int	key_hook(int keycode, t_vars *vars)
 	return (0);
 }
 
-int	mouse_hook(int keycode, t_vars *vars)
-{
-	if (keycode == 4)
-		return keycode;
-	else if (keycode == 5)
-		return keycode;
-	else if (keycode == 3)
-		return keycode;
-	else if (keycode == 2)
-		return keycode;
-	else if (keycode == 1)
-		return keycode;
-	return 0;
-}
-
-
 int	main(void)
 {
 	t_vars	vars;
 	char *path = "test/output-onlinepngtools.xpm";
 	char *path3 = "test/output-onlinepngtools-_3_.xpm";
-	char *path2 = "test/thir.xpm";
+	char *path2 = "test/output-onlinepngtools-_4_.xpm";
 	vars.path4 = "test/tttt.xpm";
 	int x;
 	int res;
 	int y;
 	int a = 1;
-	int b = 10;
+	int b = 1;
+	int c = 1;
+	int d = 1;
 
 	vars.mlx = mlx_init();
 	vars.win = mlx_new_window(vars.mlx, 1000, 700, "wach");
-	mlx_mouse_hook(vars.win, mouse_hook, &vars);
 	vars.img = mlx_xpm_file_to_image(vars.mlx, path, &vars.width, &vars.height);
 	vars.img3 = mlx_xpm_file_to_image(vars.mlx, path3, &vars.x, &vars.y);
-	vars.img4 = mlx_xpm_file_to_image(vars.mlx, vars.path4, &vars.width, &vars.height);
-	mlx_put_image_to_window(vars.mlx, vars.win, vars.img4, 580, 560);
 	mlx_key_hook(vars.win, key_hook, &vars);
 	mlx_put_image_to_window(vars.mlx, vars.win, vars.img, 530, 1);
 	vars.img2 = mlx_xpm_file_to_image(vars.mlx, path2, &x, &y);
@@ -139,7 +114,22 @@ int	main(void)
 	while (a < 1000)
 	{	
 		mlx_put_image_to_window(vars.mlx, vars.win, vars.img2, a, 625);
-		a += 50;
+		a += 76;
+	}
+	while (b < 1000)
+	{	
+		mlx_put_image_to_window(vars.mlx, vars.win, vars.img2, 1, b);
+		b += 76;
+	}
+	while (c < 1000)
+	{	
+		mlx_put_image_to_window(vars.mlx, vars.win, vars.img2, c, 1);
+		c += 76;
+	}
+	while (d < 1000)
+	{	
+		mlx_put_image_to_window(vars.mlx, vars.win, vars.img2, 930, d);
+		d += 76;
 	}
 	mlx_loop(vars.mlx);
 }
