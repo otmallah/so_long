@@ -41,6 +41,7 @@ typedef struct	s_long {
 	int		fd;
 	char	*s;
 	char	*str;
+	char	**str2;
 	int i , a;
 }	t_long;
 
@@ -74,7 +75,7 @@ void	sec_check(void)
 		exit(1);
 	index.x = 0;
 	res = salam();
-	printf("%d\n" , res);
+	//printf("%d\n" , res);
 	a = res;
 	while (res > 0)
 	{
@@ -183,36 +184,85 @@ int	check_event(t_long *index)
 	return 0;
 }
 
+int a;
+int b;
+int cout;
+
+void	ft_wall(char **tab);
+
 int		check_event2(t_long *index)
 {
 	int e = 0;
 	int k = 0;
 
-	index->i = 0;
-	index->a = 0;
-	index->fd = open("test/test.ber" , O_RDONLY);
-	index->str = get_next_line(index->fd);
-	if (index->str == NULL)
-		return 0;
-	while (index->str != NULL)
+	int i = 0;
+	int j = 0;
+	int res;
+	if (index->str2[1] == 0)
 	{
-		while (index->str[index->i])
-		{
-			if (index->str[index->i] == '1')
-				mlx_put_image_to_window(index->mlx, index->win, index->img1, e, k);
-			else if (index->str[index->i] == '0')
-				o++;
-			else if (index->str[index->i] == 'E')
-				mlx_put_image_to_window(index->mlx, index->win, index->img2, e, k);
-			else if (index->str[index->i] == 'C')
-				mlx_put_image_to_window(index->mlx, index->win, index->img3, e, k);
-			index->i++;
-			e += 76;
-		}
-		e = 0;
-		k += 76;
+		index->fd = open("test/test.ber" , O_RDONLY);
 		index->str = get_next_line(index->fd);
-		index->i = 0;
+		if (index->str == NULL)
+			return 0;
+		res = salam();
+		index->str2 = malloc(sizeof(char *) * (res + 1));
+		while (index->str != NULL)
+		{
+			i = strlen(index->str);
+			index->str2[j] = malloc(sizeof(char) * (i + 1));
+			index->str = get_next_line(index->fd);
+			j++;
+		}
+		ft_wall(index->str2);
+		i = 0;
+		j = 0;
+		index->str2[a][b] = '0';
+		while (index->str2[j] != NULL)
+		{
+			while (index->str2[j][i])
+			{
+				if (index->str2[j][i] == '1')
+					mlx_put_image_to_window(index->mlx, index->win, index->img1, e, k);
+				else if (index->str2[j][i] == '0')
+					o++;
+				else if (index->str2[j][i] == 'E')
+					mlx_put_image_to_window(index->mlx, index->win, index->img2, e, k);
+				else if (index->str2[j][i] == 'C')
+					mlx_put_image_to_window(index->mlx, index->win, index->img3, e, k);
+				i++;
+				e += 76;
+			}
+			i = 0;
+			j++;
+			e = 0;
+			k += 76;
+		}
+	}
+	else
+	{
+		i = 0;
+		j = 0;
+		index->str2[a][b] = '0';
+		while (index->str2[j] != NULL)
+		{
+			while (index->str2[j][i])
+			{
+				if (index->str2[j][i] == '1')
+					mlx_put_image_to_window(index->mlx, index->win, index->img1, e, k);
+				else if (index->str2[j][i] == '0')
+					o++;
+				else if (index->str2[j][i] == 'E')
+					mlx_put_image_to_window(index->mlx, index->win, index->img2, e, k);
+				else if (index->str2[j][i] == 'C')
+					mlx_put_image_to_window(index->mlx, index->win, index->img3, e, k);
+				i++;
+				e += 76;
+			}
+			i = 0;
+			j++;
+			e = 0;
+			k += 76;
+		}
 	}
 	return 0;
 }
@@ -295,7 +345,7 @@ int		key_hook(int keycode, t_long *index)
 	index->i = 0;
 	index->a = 0;
 	res = salam();
-	printf("%d \n" , res);
+	//printf("%d \n" , res);
 	tab = (char **)malloc(sizeof(char *) * (res + 1));
 	while (index->str != NULL)
 	{
@@ -310,50 +360,71 @@ int		key_hook(int keycode, t_long *index)
 		idx = find_position_index(tab);
 		line = find_position_line(tab);
 	}
-	//printf("%d  %d\n" , idx , line);
 	if (keycode == 65361)
 	{
-		puts("im here");
-		if (tab[line][idx - 1] != '1')
+		//puts("im here");
+		if (tab[line][idx - 1] != '1' || tab[line][idx - 1] == 'C')
 		{
+			idx--;
+			if (tab[line][idx] == 'C')
+			{
+				a = line;
+				b = idx;
+			}
 			mlx_clear_window(index->mlx, index->win);	
 			check_event2(index);
 			k -= 76;
 			mlx_put_image_to_window(index->mlx, index->win, index->img2, k, k2);
-			idx--;
+			//idx--;
 		}
 	}
 	else if (keycode == 65363)
 	{
-		if (tab[line][idx + 1] != '1')
+		if (tab[line][idx + 1] != '1' || tab[line][idx + 1] == 'E')
 		{		
-				mlx_clear_window(index->mlx, index->win);
-				check_event2(index);
-				k += 76;
-				mlx_put_image_to_window(index->mlx, index->win, index->img2, k, k2);
-				idx++;
+			idx++;
+			if (tab[line][idx] == 'C')
+			{
+				a = line;
+				b = idx;
+			}
+			mlx_clear_window(index->mlx, index->win);
+			check_event2(index);
+			k += 76;
+			mlx_put_image_to_window(index->mlx, index->win, index->img2, k, k2);
+			//idx++;
 		}
 	}
 	else if (keycode == 65362)
 	{
-		if (tab[line - 1][idx] != '1')
+		if (tab[line - 1][idx] != '1' || tab[line - 1][idx] == 'E')
 		{
+			line--;
+			if (tab[line][idx] == 'C')
+			{
+				a = line;
+				b = idx;
+			}
 			mlx_clear_window(index->mlx, index->win);
 			check_event2(index);
 			k2 -= 76;
 			mlx_put_image_to_window(index->mlx, index->win, index->img2, k, k2);
-			line--;
 		}
 	}
 	else if (keycode == 65364)
 	{
-		if (tab[line + 1][idx] != '1')
+		if (tab[line + 1][idx] != '1' || tab[line + 1][idx] == 'E')
 		{
+			line++;
+			if (tab[line][idx] == 'C')
+			{
+				a = line;
+				b = idx;
+			}
 			mlx_clear_window(index->mlx, index->win);
 			check_event2(index);
 			k2 += 76;
 			mlx_put_image_to_window(index->mlx, index->win, index->img2, k, k2);
-			line++;
 		}
 	}
 }
@@ -379,15 +450,10 @@ int main(void)
 	index.img2 = mlx_xpm_file_to_image(index.mlx, index.path2, &index.x, &index.y);
 	index.img3 = mlx_xpm_file_to_image(index.mlx, index.path3, &index.x, &index.y);
 	index.img4 = mlx_xpm_file_to_image(index.mlx, index.path4, &index.x, &index.y);
-	//index.img5 = mlx_xpm_file_to_image(index.mlx, index.path5, &index.x, &index.y);
 	check_event(&index);
 	mlx_key_hook(index.win, key_hook, &index);
 	mlx_get_screen_size(index.mlx, &index.x, &index.y);
 	mlx_mouse_show(index.mlx, index.win);
-	//mlx_key_hook(index.win, key_hook, &index);
-	// mlx_flush_event(index);
-	// mlx_int_get_visual(&index);
 	mlx_loop(index.mlx);
 }
-
 
