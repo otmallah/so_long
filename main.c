@@ -17,6 +17,7 @@
 #include <string.h>
 #include <errno.h>
 
+
 int k;
 int k2;
 int o;
@@ -501,11 +502,41 @@ void ft_window(void)
 				perror(" hh 3afrite ");
 				exit(1);
 			}
-			index.x++;
 		}
 		index.x = 0;
 		index.str = get_next_line(index.fd);
 	}
+}
+
+int		ft_size_window(void)
+{
+	t_long index;
+
+	index.fd = open("test/test.ber" , O_RDONLY);
+	index.str = get_next_line(index.fd);
+	index.x = 0;
+	index.a = 0;
+	while (index.str[index.x])
+	{
+		index.a = index.a + 76;
+		index.x++;
+	}
+	return index.a;
+}
+
+int		ft_size_window2(void)
+{
+	t_long index;
+
+	index.fd = open("test/test.ber", O_RDONLY);
+	index.str = get_next_line(index.fd);
+	index.a = 0;
+	while (index.str != NULL)
+	{
+		index.a = index.a + 75;
+		index.str = get_next_line(index.fd);
+	}
+	return index.a;
 }
 
 int main(void)
@@ -527,7 +558,9 @@ int main(void)
 	check_size();
 	sec_check();
 	index.mlx = mlx_init();
-	index.win = mlx_new_window(index.mlx, 2150, 700, " lo3ba za3ma ");
+	index.a = ft_size_window();
+	index.i = ft_size_window2();
+	index.win = mlx_new_window(index.mlx, index.a, index.i, " lo3ba za3ma ");
 	index.img1 = mlx_xpm_file_to_image(index.mlx, index.path, &index.x, &index.y);
 	index.img2 = mlx_xpm_file_to_image(index.mlx, index.path2, &index.x, &index.y);
 	index.img3 = mlx_xpm_file_to_image(index.mlx, index.path3, &index.x, &index.y);
