@@ -1,52 +1,4 @@
-#include "mlx.h"
-#include <stdio.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <string.h>
-#include <errno.h>
-#include "get/get_next_line.h"
-
-typedef struct	s_long {
-	void	*mlx;
-	void	*win;
-    void    *path1;
-    void    *path2;
-    void    *path3;
-    void    *path4;
-    void    *path5;
-    void    *img1;
-    void    *img2;
-    void    *img3;
-    void    *img4;
-    void    *img5;
-    int     x, y,  i,a,fd;
-    char    *str;
-    char    **str2;
-	char	**tab;
-}	t_long;
-
-int count1;
-int count2;
-int idx;
-int line;
-int a;
-int b;
-
-int	salam(void)
-{
-	char	*test;
-	int 	i;
-
-	i = 0;
-	int fd = open("test/test.ber" , O_RDONLY);
-	test = get_next_line(fd);
-	while (test != NULL)
-	{
-		test = get_next_line(fd);
-		i++;
-	}
-	return i;
-}
+#include "so_long.h"
 
 void    check_event(t_long *index)
 {
@@ -77,6 +29,8 @@ void    check_event(t_long *index)
             }
             else if (str[a] == 'E')
 			{
+				f = i;
+				p = j;
 				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
                 mlx_put_image_to_window(index->mlx, index->win, index->img4, i, j);
 			}
@@ -163,7 +117,7 @@ char   **key_event(void)
 	int x;
     int  fd = open("./test/test.ber" , O_RDONLY);
     char *str = get_next_line(fd);
-    int a = salam();
+    int a = ft_number_line();
     char **str2 = calloc(sizeof(char *) , (a + 1));
     while (str)
     {
@@ -288,6 +242,8 @@ int     key_hook(int keycode, t_long *index)
 			index->a = ft_exit(index->str2);
 			if (index->a == 0)
 			{
+				mlx_put_image_to_window(index->mlx, index->win, index->img5, f, p);
+				mlx_put_image_to_window(index->mlx, index->win, index->img6, f, p);
 				free(index->str2);
 				free(index->tab);
 				exit(1);
@@ -317,6 +273,8 @@ int     key_hook(int keycode, t_long *index)
 			index->a = ft_exit(index->str2);
 			if (index->a == 0)
 			{
+				mlx_put_image_to_window(index->mlx, index->win, index->img5, f, p);
+				mlx_put_image_to_window(index->mlx, index->win, index->img6, f, p);
 				free(index->str2);
 				free(index->tab);
 				exit(1);
@@ -333,10 +291,8 @@ int     key_hook(int keycode, t_long *index)
                 b = idx;
             }
             printf("%d %d\n" , count1 , count2);
-            //mlx_clear_window(index->mlx, index->win);
             check_event2(index);
             count1 -= 76;
-			//mlx_put_image_to_window(index->mlx, index->win, index->img5, count2, count2);
             mlx_put_image_to_window(index->mlx, index->win, index->img3, count1, count2);
         }
     }
@@ -347,6 +303,8 @@ int     key_hook(int keycode, t_long *index)
 			index->a = ft_exit(index->str2);
 			if (index->a == 0)
 			{
+				mlx_put_image_to_window(index->mlx, index->win, index->img5, f, p);
+				mlx_put_image_to_window(index->mlx, index->win, index->img6, f, p);
 				free(index->str2);
 				free(index->tab);
 				exit(1);
@@ -363,20 +321,21 @@ int     key_hook(int keycode, t_long *index)
                 b = idx;
             }
             printf("%d %d\n" , count1 , count2);
-           // mlx_clear_window(index->mlx, index->win);
             check_event2(index);
             count2 -= 76;
-			//mlx_put_image_to_window(index->mlx, index->win, index->img5, count1, count2);
             mlx_put_image_to_window(index->mlx, index->win, index->img3, count1, count2);
         }
     }
     else if (keycode == 125)
     {
+
 		if (index->tab[line + 1][idx] == 'E')
 		{
 			index->a = ft_exit(index->str2);
 			if (index->a == 0)
 			{
+				mlx_put_image_to_window(index->mlx, index->win, index->img5, f, p);
+				mlx_put_image_to_window(index->mlx, index->win, index->img6, f, p);
 				free(index->str2);
 				free(index->tab);
 				exit(1);
@@ -393,152 +352,12 @@ int     key_hook(int keycode, t_long *index)
                 b = idx;
             }
             printf("%d %d\n" , count1 , count2);
-           // mlx_clear_window(index->mlx, index->win);
             check_event2(index);
             count2 += 76;
-			//mlx_put_image_to_window(index->mlx, index->win, index->img5, count1, count2);
             mlx_put_image_to_window(index->mlx, index->win, index->img3, count1, count2);
         }
     }
     return 0;
-}
-
-int		ft_size_window(void)
-{
-	t_long index;
-
-	index.fd = open("./test/test.ber" , O_RDONLY);
-	index.str = get_next_line(index.fd);
-	index.x = 0;
-	index.a = 0;
-	while (index.str[index.x])
-	{
-		index.a = index.a + 76;
-		index.x++;
-	}
-	return index.a;
-}
-
-int		ft_size_window2(void)
-{
-	t_long index;
-
-	index.fd = open("./test/test.ber", O_RDONLY);
-	index.str = get_next_line(index.fd);
-	index.a = 0;
-	while (index.str != NULL)
-	{
-		index.a = index.a + 75;
-		index.str = get_next_line(index.fd);
-	}
-	return index.a;
-}
-
-void	sec_check(void)
-{
-	t_long	index;
-	int res;
-	int a;
-
-	index.fd = open("test/test.ber" , O_RDONLY);
-	index.str = get_next_line(index.fd);
-	if (index.str == NULL)
-		exit(1);
-	index.x = 0;
-	res = salam();
-	//printf("%d\n" , res);
-	a = res;
-	while (res > 0)
-	{
-		if (res == 1 || res == a)
-		{
-			while (index.str[index.x])
-			{
-				if (index.str[index.x] != '1')
-				{
-					puts("ERROR1");
-					exit(1);
-				}
-				index.x++;
-			}
-			index.x = 0;
-		}
-		index.y = strlen(index.str) - 1;
-		if (index.str[0] == '1' && index.str[index.y] == '1')
-			index.str = get_next_line(index.fd);
-		else
-		{
-			puts("ERROR2");
-			exit(1);			
-		}
-		res--;
-		//printf("%s \n" , index.str);
-	}
-}
-
-int    check_size(void)
-{
-	int k = 0, l = 0;
-	int fd;
-	int i;
-	int cout;
-	char *str;
-	cout = 0;
-
-	//sec_check();
-	fd = open("test/test.ber" , O_RDONLY);
-	str = get_next_line(fd);
-	if (str == NULL)
-		return (0);
-	k = strlen(str);
-	while(str != NULL) 
-	{
-		l = strlen(str);
-		if (l != k)
-		{
-			perror("error");
-			exit(1);
-		}
-		str = get_next_line(fd);
-		cout++;
-	}
-	if (str == NULL)
-	{
-		if (l == k && cout < l)
-			l++;
-		else
-		{
-			perror("The map must be rectangular.");
-			exit(1);
-		}
-	}
-	return 0;
-}
-
-void ft_window(void)
-{
-	t_long index;
-	puts("imher");
-
-	index.fd = open("test/test.ber" , O_RDONLY);
-	index.str = get_next_line(index.fd);
-	index.x = 0;
-	while (index.str != NULL)
-	{
-		while(index.str[index.x])
-		{
-			if (index.str[index.x] == '0' || index.str[index.x] == '1' || index.str[index.x] == 'E' || index.str[index.x] == 'C' || index.str[index.x] == 'P')
-				index.x++;
-			else
-			{
-				perror(" hh 3afrite ");
-				exit(1);
-			}
-			index.x++;
-		}
-		index.x = 0;
-		index.str = get_next_line(index.fd);
-	}
 }
 
 int main(void)
@@ -548,8 +367,9 @@ int main(void)
     index.path1 = "./test/wall.xpm";
     index.path2 = "./test/eats.xpm";
     index.path3 = "./test/player.xpm";
-    index.path4 = "./test/babb.xpm";
-	index.path5 = "./test/grass.pmg.xpm";
+    index.path4 = "./test/bab.xpm";
+	index.path5 = "./test/ok.xpm.xpm";
+	index.path6 = "./test/DOR.xpm";
     index.fd = open("./test/test.ber", O_RDONLY);
 	index.str = get_next_line(index.fd);
 	if (index.str == NULL)
@@ -562,14 +382,15 @@ int main(void)
 	check_size();
 	sec_check();
 	index.mlx = mlx_init();
-	index.a = ft_size_window();
-	index.i = ft_size_window2();
+	index.a = ft_size_width();
+	index.i = ft_size_height();
 	index.win = mlx_new_window(index.mlx, index.a, index.i, " lo3ba za3ma ");
     index.img1 = mlx_xpm_file_to_image(index.mlx, index.path1, &index.x, &index.y);
     index.img2 = mlx_xpm_file_to_image(index.mlx, index.path2, &index.x, &index.y);
     index.img3 = mlx_xpm_file_to_image(index.mlx, index.path3, &index.x, &index.y);
     index.img4 = mlx_xpm_file_to_image(index.mlx, index.path4, &index.x, &index.y);
     index.img5 = mlx_xpm_file_to_image(index.mlx, index.path5, &index.x, &index.y);
+    index.img6 = mlx_xpm_file_to_image(index.mlx, index.path6, &index.x, &index.y);
     check_event(&index);
     mlx_key_hook(index.win, key_hook, &index);
 	system("leaks a.out");
