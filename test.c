@@ -13,10 +13,12 @@ typedef struct	s_long {
     void    *path2;
     void    *path3;
     void    *path4;
+    void    *path5;
     void    *img1;
     void    *img2;
     void    *img3;
     void    *img4;
+    void    *img5;
     int     x, y,  i,a,fd;
     char    *str;
     char    **str2;
@@ -60,17 +62,24 @@ void    check_event(t_long *index)
             if (str[a] == '1')
                 mlx_put_image_to_window(index->mlx, index->win, index->img1, i, j);
             else if (str[a] == '0')
-                a = a;
+				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
             else if (str[a] == 'C')
+			{
+				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
                 mlx_put_image_to_window(index->mlx, index->win, index->img2 , i, j);
+			}
             else if (str[a] == 'P')
             {
                 count1 = i;
                 count2 = j;
+				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
                 mlx_put_image_to_window(index->mlx, index->win, index->img3, i, j);
             }
             else if (str[a] == 'E')
+			{
+				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
                 mlx_put_image_to_window(index->mlx, index->win, index->img4, i, j);
+			}
             a++;
             i +=76;
         }
@@ -194,12 +203,18 @@ void    check_event2(t_long *index)
 			{
 				if (index->str2[j][i] == '1')
 					mlx_put_image_to_window(index->mlx, index->win, index->img1, e, k);
-				else if (index->str2[j][i] == '0')
-					i = i;
+				else if (index->str2[j][i] == '0' || index->str2[j][i] == 'P')
+					mlx_put_image_to_window(index->mlx, index->win, index->img5, e, k);
 				else if (index->str2[j][i] == 'E')
+				{
+					mlx_put_image_to_window(index->mlx, index->win, index->img5, e, k);
 					mlx_put_image_to_window(index->mlx, index->win, index->img4, e, k);
+				}
 				else if (index->str2[j][i] == 'C')
+				{
+					mlx_put_image_to_window(index->mlx, index->win, index->img5, e, k);
 					mlx_put_image_to_window(index->mlx, index->win, index->img2, e, k);
+				}
 				i++;
 				e += 76;
 			}
@@ -219,12 +234,18 @@ void    check_event2(t_long *index)
 			{
 				if (index->str2[j][i] == '1')
 					mlx_put_image_to_window(index->mlx, index->win, index->img1, e, k);
-				else if (index->str2[j][i] == '0')
-					i = i;
+				else if (index->str2[j][i] == '0' || index->str2[j][i] == 'P')
+					mlx_put_image_to_window(index->mlx, index->win, index->img5, e, k);
 				else if (index->str2[j][i] == 'E')
+				{
+					mlx_put_image_to_window(index->mlx, index->win, index->img5, e, k);
 					mlx_put_image_to_window(index->mlx, index->win, index->img4, e, k);
+				}
 				else if (index->str2[j][i] == 'C')
+				{
+					mlx_put_image_to_window(index->mlx, index->win, index->img5, e, k);
 					mlx_put_image_to_window(index->mlx, index->win, index->img2, e, k);
+				}
 				i++;
 				e += 76;
 			}
@@ -282,9 +303,10 @@ int     key_hook(int keycode, t_long *index)
                 a = line;
                 b = idx;
             }
-            mlx_clear_window(index->mlx, index->win);
+           // mlx_clear_window(index->mlx, index->win);
             check_event2(index);
             count1 += 76;
+			//mlx_put_image_to_window(index->mlx, index->win, index->img5, count1, count2);
             mlx_put_image_to_window(index->mlx, index->win, index->img3, count1, count2);
         }
     }
@@ -311,9 +333,10 @@ int     key_hook(int keycode, t_long *index)
                 b = idx;
             }
             printf("%d %d\n" , count1 , count2);
-            mlx_clear_window(index->mlx, index->win);
+            //mlx_clear_window(index->mlx, index->win);
             check_event2(index);
             count1 -= 76;
+			//mlx_put_image_to_window(index->mlx, index->win, index->img5, count2, count2);
             mlx_put_image_to_window(index->mlx, index->win, index->img3, count1, count2);
         }
     }
@@ -340,9 +363,10 @@ int     key_hook(int keycode, t_long *index)
                 b = idx;
             }
             printf("%d %d\n" , count1 , count2);
-            mlx_clear_window(index->mlx, index->win);
+           // mlx_clear_window(index->mlx, index->win);
             check_event2(index);
             count2 -= 76;
+			//mlx_put_image_to_window(index->mlx, index->win, index->img5, count1, count2);
             mlx_put_image_to_window(index->mlx, index->win, index->img3, count1, count2);
         }
     }
@@ -369,9 +393,10 @@ int     key_hook(int keycode, t_long *index)
                 b = idx;
             }
             printf("%d %d\n" , count1 , count2);
-            mlx_clear_window(index->mlx, index->win);
+           // mlx_clear_window(index->mlx, index->win);
             check_event2(index);
             count2 += 76;
+			//mlx_put_image_to_window(index->mlx, index->win, index->img5, count1, count2);
             mlx_put_image_to_window(index->mlx, index->win, index->img3, count1, count2);
         }
     }
@@ -524,6 +549,7 @@ int main(void)
     index.path2 = "./test/eats.xpm";
     index.path3 = "./test/player.xpm";
     index.path4 = "./test/babb.xpm";
+	index.path5 = "./test/grass.pmg.xpm";
     index.fd = open("./test/test.ber", O_RDONLY);
 	index.str = get_next_line(index.fd);
 	if (index.str == NULL)
@@ -543,7 +569,9 @@ int main(void)
     index.img2 = mlx_xpm_file_to_image(index.mlx, index.path2, &index.x, &index.y);
     index.img3 = mlx_xpm_file_to_image(index.mlx, index.path3, &index.x, &index.y);
     index.img4 = mlx_xpm_file_to_image(index.mlx, index.path4, &index.x, &index.y);
+    index.img5 = mlx_xpm_file_to_image(index.mlx, index.path5, &index.x, &index.y);
     check_event(&index);
     mlx_key_hook(index.win, key_hook, &index);
+	system("leaks a.out");
 	mlx_loop(index.mlx);
 }
