@@ -23,26 +23,12 @@
 typedef struct	s_long {
 	void	*mlx;
 	void	*win;
-    void    *path1;
-    void    *path2;
-    void    *path3;
-    void    *path4;
-    void    *path5;
-    void    *path6;
-    void    *path7;
-    void    *path8;
-    void    *path9;
-    void    *path10;
     void    *img1;
     void    *img2;
     void    *img3;
     void    *img4;
     void    *img5;
     void    *img6;
-    void    *img7;
-    void    *img8;
-    void    *img9;
-    void    *img10;
     int     x, y,  i,a,fd;
     char    *str;
     char    **str2;
