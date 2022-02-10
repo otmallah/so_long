@@ -45,26 +45,6 @@ void    check_event(t_long *index, char *file)
     }
 }
 
-int	ft_exit(char **tab)
-{
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	while(tab[j] != NULL)
-	{
-		while (tab[j][i])
-		{
-			if (tab[j][i] == 'C')
-				return 1;
-			i++;
-		}
-		i = 0;
-		j++;
-	}
-	return 0;
-}
 
 int     key_hook(int keycode, t_long *index)
 {
