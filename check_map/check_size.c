@@ -16,7 +16,7 @@ int    check_size(char *file)
 {
 	t_long index;
 
-	index.a = 0;
+	index.e = 0;
 	index.fd = open(file , O_RDONLY);
 	index.str = get_next_line(index.fd);
 	if (index.str == NULL)
@@ -32,11 +32,11 @@ int    check_size(char *file)
 		}
 		free(index.str);
 		index.str = get_next_line(index.fd);
-		index.a++;
+		index.e++;
 	}
 	if (index.str == NULL)
 	{
-		if (index.y == index.x && index.a < index.y)
+		if (index.y == index.x && index.e < index.y)
 			index.y++;
 		else
 		{

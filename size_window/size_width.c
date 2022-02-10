@@ -20,12 +20,12 @@ int		ft_size_width(char *file)
 	index.fd = open(file , O_RDONLY);
 	index.str = get_next_line(index.fd);
 	index.x = 0;
-	index.a = 0;
+	index.e = 0;
 	while (index.str[index.x])
 	{
-		index.a = index.a + 76;
+		index.e = index.e + 76;
 		index.x++;
 	}
 	free(index.str);
-	return index.a;
+	return index.e;
 }

@@ -19,12 +19,12 @@ int		ft_size_height(char *file)
 
 	index.fd = open(file, O_RDONLY);
 	index.str = get_next_line(index.fd);
-	index.a = 0;
+	index.e = 0;
 	while (index.str != NULL)
 	{
-		index.a = index.a + 75;
+		index.e = index.e + 75;
 		free(index.str);
 		index.str = get_next_line(index.fd);
 	}
-	return index.a;
+	return index.e;
 }

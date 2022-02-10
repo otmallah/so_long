@@ -17,10 +17,10 @@ char   **key_event(char *file, t_long *index)
         str = get_next_line(fd);
     }
     ft_wall(str2, index);
-    if ( idx == 0 && line == 0)
+    if ( index->idx == 0 && index->line == 0)
 	{
-		idx = find_position_index(str2);
-		line = find_position_line(str2);
+		index->idx = find_position_index(str2);
+		index->line = find_position_line(str2);
 	}
     free(str);
     close(fd);

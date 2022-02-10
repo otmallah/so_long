@@ -29,19 +29,20 @@ typedef struct	s_long {
     void    *img4;
     void    *img5;
     void    *img6;
-    int     x, y,  i,a,fd;
+    int     x, y,  i,e,fd;
     char    *str;
     char    **str2;
 	char	**tab;
     char    *file;
+    int     count1;
+    int     count2;
+    int     idx;
+    int     line;
+    int     a;
+    int     b;
 }	t_long;
 
-int count1;
-int count2;
-int idx;
-int line;
-int a;
-int b;
+
 int f, p;
 int m, n;
 
@@ -56,5 +57,10 @@ void    ft_complete_map(void);
 int		find_position_index(char **tab);
 int		find_position_line(char **tab);
 void	ft_wall(char **tab, t_long *index);
+void	click_down(t_long *index);
+void	click_right(t_long *index);
+void	click_up(t_long *index);
+void	click_left(t_long *index);
+int     ft_exit(char **tab);
 
 #endif
