@@ -33,6 +33,7 @@ typedef struct	s_long {
     char    *str;
     char    **str2;
 	char	**tab;
+    char    *file;
 }	t_long;
 
 int count1;
@@ -44,16 +45,16 @@ int b;
 int f, p;
 int m, n;
 
-int    check_size(void);
-void	sec_check(void);
-void    ft_window(void);
-int	    ft_number_line(void);
-int		ft_size_height(void);
-int		ft_size_width(void);
-char   **key_event(void);
+int    check_size(char *file);
+void	sec_check(char *file);
+void    ft_window(char *file);
+int	    ft_number_line(char *file);
+int		ft_size_height(char *file);
+int		ft_size_width(char *file);
+char   **key_event(char *file, t_long *index);
 void    ft_complete_map(void);
 int		find_position_index(char **tab);
 int		find_position_line(char **tab);
-void	ft_wall(char **tab);
+void	ft_wall(char **tab, t_long *index);
 
 #endif

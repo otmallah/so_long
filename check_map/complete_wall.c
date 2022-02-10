@@ -13,19 +13,18 @@
 
 #include "../so_long.h"
 
-void	sec_check(void)
+void	sec_check(char *file)
 {
 	t_long	index;
-	int res;
-	int a;
+	int		res;
+	int		a;
 
-	index.fd = open("test/test.ber" , O_RDONLY);
+	index.fd = open(file , O_RDONLY);
 	index.str = get_next_line(index.fd);
 	if (index.str == NULL)
 		exit(1);
 	index.x = 0;
-	res = ft_number_line();
-	//printf("%d\n" , res);
+	res = ft_number_line(file);
 	a = res;
 	while (res > 0)
 	{
@@ -44,7 +43,10 @@ void	sec_check(void)
 		}
 		index.y = strlen(index.str) - 1;
 		if (index.str[0] == '1' && index.str[index.y] == '1')
+		{
+			free(index.str);
 			index.str = get_next_line(index.fd);
+		}
 		else
 		{
 			puts("ERROR2");
@@ -52,4 +54,6 @@ void	sec_check(void)
 		}
 		res--;
 	}
+	free(index.str);
+	close(index.fd);
 }

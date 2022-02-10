@@ -13,18 +13,20 @@
 
 #include "../so_long.h"
 
-int	ft_number_line(void)
+int	ft_number_line(char *file)
 {
 	char	*test;
 	int 	i;
 
 	i = 0;
-	int fd = open("test/test.ber" , O_RDONLY);
+	int fd = open(file , O_RDONLY);
 	test = get_next_line(fd);
 	while (test != NULL)
 	{
-		test = get_next_line(fd);
 		i++;
+		free(test);
+		test = get_next_line(fd);
 	}
+	close(fd);
 	return i;
 }

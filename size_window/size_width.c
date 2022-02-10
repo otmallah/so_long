@@ -13,11 +13,11 @@
 
 #include "../so_long.h"
 
-int		ft_size_width(void)
+int		ft_size_width(char *file)
 {
 	t_long index;
 
-	index.fd = open("./test/test.ber" , O_RDONLY);
+	index.fd = open(file , O_RDONLY);
 	index.str = get_next_line(index.fd);
 	index.x = 0;
 	index.a = 0;
@@ -26,5 +26,6 @@ int		ft_size_width(void)
 		index.a = index.a + 76;
 		index.x++;
 	}
+	free(index.str);
 	return index.a;
 }

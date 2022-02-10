@@ -12,16 +12,16 @@
 
 #include "../so_long.h"
 
-void    ft_complete_map(void)
-{
-    t_long  index;
-    char **str;
-    char *path;
+// void    ft_complete_map(void)
+// {
+//     t_long  index;
+//     char **str;
+//     char *path;
 
-    str = key_event();
-    index.x = 0;
-    index.i = 0;
-    index.y = 0;
-    path = "0P1CE";
-    //0
-}
+//     str = key_event();
+//     index.x = 0;
+//     index.i = 0;
+//     index.y = 0;
+//     path = "0P1CE";
+//     //0
+// }

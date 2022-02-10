@@ -12,12 +12,12 @@
 
 #include "../so_long.h"
 
-int    check_size(void)
+int    check_size(char *file)
 {
 	t_long index;
 
 	index.a = 0;
-	index.fd = open("test/test.ber" , O_RDONLY);
+	index.fd = open(file , O_RDONLY);
 	index.str = get_next_line(index.fd);
 	if (index.str == NULL)
 		return (0);
@@ -30,6 +30,7 @@ int    check_size(void)
 			perror("error");
 			exit(1);
 		}
+		free(index.str);
 		index.str = get_next_line(index.fd);
 		index.a++;
 	}
@@ -43,5 +44,7 @@ int    check_size(void)
 			exit(1);
 		}
 	}
+	free(index.str);
+	close(index.fd);
 	return 0;
 }

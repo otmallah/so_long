@@ -42,9 +42,9 @@ int		find_position_line(char **tab)
 	return 0;
 }
 
-void	ft_wall(char **tab)
+void	ft_wall(char **tab, t_long *index)
 {
-	int		fd = open("./test/test.ber" , O_RDONLY);
+	int		fd = open(index->file , O_RDONLY);
 	char	*str;
 	int		i = 0;
 	int		j = 0;
@@ -62,7 +62,10 @@ void	ft_wall(char **tab)
 		i = 0;
 		a = 0;
 		j++;
+		free(str);
 		str = get_next_line(fd);
 	}
+	free(str);
 	tab[j] = NULL;
+	close(fd);
 }

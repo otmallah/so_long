@@ -12,12 +12,10 @@
 
 #include "../so_long.h"
 
-void ft_window(void)
+void ft_window(char *file)
 {
 	t_long index;
-	puts("imher");
-
-	index.fd = open("test/test.ber" , O_RDONLY);
+	index.fd = open(file , O_RDONLY);
 	index.str = get_next_line(index.fd);
 	index.x = 0;
 	while (index.str != NULL)
@@ -32,6 +30,9 @@ void ft_window(void)
 			index.x++;
 		}
 		index.x = 0;
+		free(index.str);
 		index.str = get_next_line(index.fd);
 	}
+	free(index.str);
+	close(index.fd);
 }

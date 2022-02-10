@@ -13,16 +13,17 @@
 
 #include "../so_long.h"
 
-int		ft_size_height(void)
+int		ft_size_height(char *file)
 {
 	t_long index;
 
-	index.fd = open("./test/test.ber", O_RDONLY);
+	index.fd = open(file, O_RDONLY);
 	index.str = get_next_line(index.fd);
 	index.a = 0;
 	while (index.str != NULL)
 	{
 		index.a = index.a + 75;
+		free(index.str);
 		index.str = get_next_line(index.fd);
 	}
 	return index.a;
