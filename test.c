@@ -1,5 +1,50 @@
 #include "so_long.h"
 
+void    check_event(t_long *index, char *file)
+{
+    int i, j, a, fd;
+    char *str;
+
+	puts("is");
+    fd = open(file, O_RDONLY);
+    str = get_next_line(fd);
+    while (str != NULL)
+    {
+        while (str[a])
+        {
+            if (str[a] == '1')
+                mlx_put_image_to_window(index->mlx, index->win, index->img1, i, j);
+            else if (str[a] == '0')
+				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
+            else if (str[a] == 'C')
+			{
+				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
+                mlx_put_image_to_window(index->mlx, index->win, index->img2 , i, j);
+			}
+            else if (str[a] == 'P')
+            {
+                count1 = i;
+                count2 = j;
+				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
+                mlx_put_image_to_window(index->mlx, index->win, index->img3, i, j);
+            }
+            else if (str[a] == 'E')
+			{
+				f = i;
+				p = j;
+				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
+                mlx_put_image_to_window(index->mlx, index->win, index->img4, i, j);
+			}
+            a++;
+            i +=76;
+        }
+        a = 0;
+        i = 0;
+        j += 76;
+        str = get_next_line(fd);
+    }
+}
+
 int	ft_exit(char **tab)
 {
 	int i;
