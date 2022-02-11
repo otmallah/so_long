@@ -69,7 +69,7 @@ int	ft_exit(char **tab)
 int     key_hook(int keycode, t_long *index)
 {
 	if (index->a == 0)
-   		index->tab = key_event(index->file, index);
+		index->tab = key_event(index->file, index);
 	if (index->a != 0 && index->b != 0)
 		index->tab[index->a][index->b] = '0';
     if (keycode == 124)
@@ -82,6 +82,7 @@ int     key_hook(int keycode, t_long *index)
 		click_down(index);
 	else if (keycode == 53)
 		exit(1);
+	a++;
     return 0;
 }
 
@@ -94,6 +95,7 @@ int main(int ac, char **av)
 	if (index.str == NULL || index.str[0] == '\0')
 		exit(1);
 	index.file = av[1];
+	ft_complete_map(av[1], &index);
 	ft_window(av[1]);
 	check_size(av[1]);
 	sec_check(av[1]);

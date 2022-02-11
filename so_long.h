@@ -42,7 +42,7 @@ typedef struct	s_long {
     int     b;
 }	t_long;
 
-
+static int a;
 int f, p;
 int m, n;
 
@@ -53,7 +53,7 @@ int	    ft_number_line(char *file);
 int		ft_size_height(char *file);
 int		ft_size_width(char *file);
 char   **key_event(char *file, t_long *index);
-void    ft_complete_map(void);
+void    ft_complete_map(char *file, t_long *index);
 int		find_position_index(char **tab);
 int		find_position_line(char **tab);
 void	ft_wall(char **tab, t_long *index);

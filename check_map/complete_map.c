@@ -12,16 +12,36 @@
 
 #include "../so_long.h"
 
-// void    ft_complete_map(void)
-// {
-//     t_long  index;
-//     char **str;
-//     char *path;
+void    ft_complete_map(char *file, t_long *index)
+{
+    int a = 0;
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    char *check = "10PCE";
+    index->str2 = key_event(file, index);
+    printf("%c \n" , check[2]);
 
-//     str = key_event();
-//     index.x = 0;
-//     index.i = 0;
-//     index.y = 0;
-//     path = "0P1CE";
-//     //0
-// }
+    while (check[a])
+    {
+        while (index->str2[i])
+        {
+            while (index->str2[i][j])
+            {
+                while (check[a])
+                {
+                    if(check[a] == index->str2[i][j])
+                        k = 1;
+                    a++;
+                }
+                j++; 
+            }
+            printf("%d \n", k);
+            j = 0;
+            i++;
+        }
+        i = 0;
+        j = 0;
+        a++;
+    }
+}
