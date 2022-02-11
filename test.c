@@ -116,16 +116,23 @@ void	mouvement(t_long *index, char *file)
 	y = 76;
 }
 
+int x = 76;
+int y = 76;
+
 int loop_hook(t_long *index)
 {
-	printf("ije");
-	int x , y;
-	x = 76;
-	y = 76;
+	if (x == 80)
+		x = 76;
     mlx_put_image_to_window(index->mlx, index->win, index->img2, x, y);
     mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
-	x += 76;
+    mlx_put_image_to_window(index->mlx, index->win, index->img7, x, y);
+    mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
+    mlx_put_image_to_window(index->mlx, index->win, index->img8, x, y);
+	mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
+    mlx_put_image_to_window(index->mlx, index->win, index->img9, x, y);
+	mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
     mlx_put_image_to_window(index->mlx, index->win, index->img10, x, y);
+	x++;
 	return 0;
 }
 
@@ -152,8 +159,8 @@ int main(int ac, char **av)
     index.img4 = mlx_xpm_file_to_image(index.mlx, "./test/door.xpm", &index.x, &index.y);
     index.img5 = mlx_xpm_file_to_image(index.mlx, "./test/grass.xpm", &index.x, &index.y);
     index.img6 = mlx_xpm_file_to_image(index.mlx, "./test/DOR.xpm", &index.x, &index.y);
-    index.img7 = mlx_xpm_file_to_image(index.mlx, "./test/DEATH.xpm", &index.x, &index.y);
-    index.img8 = mlx_xpm_file_to_image(index.mlx, "./test/DEATH2.xpm", &index.x, &index.y);
+    index.img7 = mlx_xpm_file_to_image(index.mlx, "./test/eats2.xpm", &index.x, &index.y);
+    index.img8 = mlx_xpm_file_to_image(index.mlx, "./test/eats3.xpm", &index.x, &index.y);
     index.img9 = mlx_xpm_file_to_image(index.mlx, "./test/eats4.xpm", &index.x, &index.y);
     index.img10 = mlx_xpm_file_to_image(index.mlx, "./test/eats5.xpm", &index.x, &index.y);
     check_event(&index, av[1]);
