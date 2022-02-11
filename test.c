@@ -106,8 +106,8 @@ int main(int ac, char **av)
     index.img1 = mlx_xpm_file_to_image(index.mlx, "./test/wall.xpm", &index.x, &index.y);
     index.img2 = mlx_xpm_file_to_image(index.mlx, "./test/eats.xpm", &index.x, &index.y);
     index.img3 = mlx_xpm_file_to_image(index.mlx, "./test/player.xpm", &index.x, &index.y);
-    index.img4 = mlx_xpm_file_to_image(index.mlx, "./test/bab.xpm", &index.x, &index.y);
-    index.img5 = mlx_xpm_file_to_image(index.mlx, "./test/ok.xpm.xpm", &index.x, &index.y);
+    index.img4 = mlx_xpm_file_to_image(index.mlx, "./test/door.xpm", &index.x, &index.y);
+    index.img5 = mlx_xpm_file_to_image(index.mlx, "./test/grass.xpm", &index.x, &index.y);
     index.img6 = mlx_xpm_file_to_image(index.mlx, "./test/DOR.xpm", &index.x, &index.y);
     check_event(&index, av[1]);
     mlx_key_hook(index.win, key_hook, &index);
