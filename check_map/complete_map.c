@@ -20,8 +20,6 @@ void    ft_complete_map(char *file, t_long *index)
     int k = 0;
     char *check = "10PCE";
     index->str2 = key_event(file, index);
-    printf("%c \n" , check[2]);
-
     while (check[a])
     {
         while (index->str2[i])
@@ -36,7 +34,6 @@ void    ft_complete_map(char *file, t_long *index)
                 }
                 j++; 
             }
-            printf("%d \n", k);
             j = 0;
             i++;
         }

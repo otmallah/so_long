@@ -29,6 +29,10 @@ typedef struct	s_long {
     void    *img4;
     void    *img5;
     void    *img6;
+    void    *img7;
+    void    *img8;
+    void    *img9;
+    void    *img10;
     int     x, y,  i,e,fd;
     char    *str;
     char    **str2;

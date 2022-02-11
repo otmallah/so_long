@@ -23,6 +23,10 @@ void	click_left(t_long *index)
 				exit(1);
 			}
 		}
+        if (index->tab[index->line][index->idx - 1] == 'C')
+        {
+            
+        }
         if (index->tab[index->line][index->idx - 1] != '1' && index->tab[index->line][index->idx - 1] != 'E')
         {
             index->idx--;
