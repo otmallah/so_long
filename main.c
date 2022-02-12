@@ -22,11 +22,20 @@ int y;
 int key_hook(t_long *index)
 {
 	printf("%d \n" , x);
-	// if (x == 10)
-	// 	x = 1;
 	mlx_put_image_to_window(index->mlx, index->win, index->img2, x, y);
 	mlx_put_image_to_window(index->mlx, index->win, index->img5, 0, 0);
+	mlx_put_image_to_window(index->mlx, index->win, index->img7, x, y);
+	x += 1;
+	//sleep(1);
+	mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
+	mlx_put_image_to_window(index->mlx, index->win, index->img8, x, y);
+	mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
+	x += 1;
+	//sleep(1);
+	mlx_put_image_to_window(index->mlx, index->win, index->img9, x, y);
+	mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
 	mlx_put_image_to_window(index->mlx, index->win, index->img10, x, y);
+	sleep(1);
 	x += 1;
 	return 0;
 }
