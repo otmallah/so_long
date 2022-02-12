@@ -33,8 +33,10 @@ typedef struct	s_long {
     void    *img8;
     void    *img9;
     void    *img10;
+    void    *img11;
     int     x, y,  i,e,fd;
     char    *str;
+    char    *str1;
     char    **str2;
 	char	**tab;
     char    *file;
@@ -46,9 +48,9 @@ typedef struct	s_long {
     int     b;
 }	t_long;
 
-static int a;
 int f, p;
 int m, n;
+int x, y;
 
 int    check_size(char *file);
 void	sec_check(char *file);
@@ -66,5 +68,8 @@ void	click_right(t_long *index);
 void	click_up(t_long *index);
 void	click_left(t_long *index);
 int     ft_exit(char **tab);
+char	*ft_itoa(int n);
+char	*ft_strjoin(char const *s1, char const *s2);
+//void	utils_move_down(t_long *index);
 
 #endif

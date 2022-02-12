@@ -34,6 +34,13 @@ void    check_event(t_long *index, char *file)
 				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
                 mlx_put_image_to_window(index->mlx, index->win, index->img4, i, j);
 			}
+			else if (str[a] == 'K')
+			{
+				x = i;
+				y = j;
+				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
+                mlx_put_image_to_window(index->mlx, index->win, index->img11, i, j);				
+			}
             a++;
             i +=76;
         }
@@ -82,70 +89,22 @@ int     key_hook(int keycode, t_long *index)
 		click_down(index);
 	else if (keycode == 53)
 		exit(1);
-	a++;
     return 0;
 }
-
-void	mouvement(t_long *index, char *file)
-{
-	int x = 76;
-	int y = 76;
-	while (x <= 156)
-	{
-		mlx_clear_window(index->mlx, index->win);
-		check_event(index, file);
-    	mlx_put_image_to_window(index->mlx, index->win, index->img2, x, y);
-		x += 10;
-		mlx_clear_window(index->mlx, index->win);
-		check_event(index, file);
-    	mlx_put_image_to_window(index->mlx, index->win, index->img7, x, y);
-		x += 10;
-		mlx_clear_window(index->mlx, index->win);
-		check_event(index, file);
-    	mlx_put_image_to_window(index->mlx, index->win, index->img8, x, y);
-		x += 10;
-		mlx_clear_window(index->mlx, index->win);
-		check_event(index, file);
-    	mlx_put_image_to_window(index->mlx, index->win, index->img9, x, y);
-		x += 10;
-		mlx_clear_window(index->mlx, index->win);
-		check_event(index, file);
-    	mlx_put_image_to_window(index->mlx, index->win, index->img10, x, y);
-	}
-	x = 76;
-	y = 76;
-}
-
-int x = 76;
-int y = 76;
+int x, y;
 
 int loop_hook(t_long *index)
 {
-	if (x == 80)
-		x = 76;
+	mlx_clear_window(index->mlx, index->win);
     mlx_put_image_to_window(index->mlx, index->win, index->img2, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img2, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img2, x, y);
-	mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img2, x, y);
-	mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
+	mlx_clear_window(index->mlx, index->win);
     mlx_put_image_to_window(index->mlx, index->win, index->img7, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img7, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img7, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img7, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img8, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img8, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img8, x, y);
-   // mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
-	x++;
+	mlx_clear_window(index->mlx, index->win);
+    mlx_put_image_to_window(index->mlx, index->win, index->img8, x,y);
+	mlx_clear_window(index->mlx, index->win);
+    mlx_put_image_to_window(index->mlx, index->win, index->img9, x,y);
+	mlx_clear_window(index->mlx, index->win);
+    mlx_put_image_to_window(index->mlx, index->win, index->img10, x, y);
 	return 0;
 }
 
@@ -176,8 +135,9 @@ int main(int ac, char **av)
     index.img8 = mlx_xpm_file_to_image(index.mlx, "./test/eats3.xpm", &index.x, &index.y);
     index.img9 = mlx_xpm_file_to_image(index.mlx, "./test/eats4.xpm", &index.x, &index.y);
     index.img10 = mlx_xpm_file_to_image(index.mlx, "./test/eats5.xpm", &index.x, &index.y);
+    index.img11 = mlx_xpm_file_to_image(index.mlx, "./test/any.xpm", &index.x, &index.y);
     check_event(&index, av[1]);
     mlx_key_hook(index.win, key_hook, &index);
-	mlx_loop_hook(index.mlx, loop_hook, &index);
+	//mlx_loop_hook(index.mlx, loop_hook, &index);
 	mlx_loop(index.mlx);
 }
