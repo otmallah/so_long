@@ -21,7 +21,16 @@ int y;
 
 int key_hook(t_long *index)
 {
-
+	//mlx_clear_window(index->mlx, index->win);
+   	mlx_put_image_to_window(index->mlx, index->win, index->img2, x, y);
+    mlx_put_image_to_window(index->mlx, index->win, index->img7, x, y);
+	mlx_clear_window(index->mlx, index->win);
+    mlx_put_image_to_window(index->mlx, index->win, index->img8, x,y);
+	mlx_clear_window(index->mlx, index->win);
+    mlx_put_image_to_window(index->mlx, index->win, index->img9, x,y);
+	mlx_clear_window(index->mlx, index->win);
+    mlx_put_image_to_window(index->mlx, index->win, index->img10, x, y);
+	x += 1;
 	return 0;
 }
 
@@ -50,6 +59,8 @@ int main(int ac, char **av)
     index.img5 = mlx_xpm_file_to_image(index.mlx, "./test/grass.xpm", &index.x, &index.y);
    // check_event(&index, av[1]);
     //mlx_key_hook(index.win, key_hook, &index);
+   // mlx_put_image_to_window(index.mlx, index.win, index.img8, x, y);
+
 	mlx_loop_hook(index.mlx, key_hook, &index);
 	mlx_loop(index.mlx);
 }

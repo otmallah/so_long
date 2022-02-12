@@ -12,6 +12,30 @@
 
 #include "../so_long.h"
 
+void	test4(t_long *index)
+{
+    printf("%d , %d\n" , x, y );
+		mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
+		mlx_put_image_to_window(index->mlx, index->win, index->img9, x, y);
+		mlx_put_image_to_window(index->mlx, index->win, index->img10, 700, 300);
+		index->eny = 0;
+}
+
+void    enemy3(t_long *index)
+{
+    if (index->tab1[pos1][pos2 - 1] != '1')
+    {
+        puts("o");
+        pos2--;
+        mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
+        x -= 76;
+        mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
+        mlx_put_image_to_window(index->mlx, index->win, index->img11, x, y);
+    }
+    else
+        puts("l");
+}
+
 void	click_left(t_long *index)
 {
 	if (index->tab[index->line][index->idx- 1] == 'E')
@@ -23,12 +47,12 @@ void	click_left(t_long *index)
 				exit(1);
 			}
 		}
-        if (index->tab[index->line][index->idx - 1] == 'C')
+    	if(index->tab[index->line][index->idx - 1] == 'K')
+		    test4(index);
+        //enemy3(index);
+        if (index->tab[index->line][index->idx - 1] != '1' && index->tab[index->line][index->idx - 1] != 'E' && index->tab[index->line][index->idx - 1] != 'K'  && index->eny == 1)
         {
-            
-        }
-        if (index->tab[index->line][index->idx - 1] != '1' && index->tab[index->line][index->idx - 1] != 'E')
-        {
+            a++;
             index->idx--;
             if (index->tab[index->line][index->idx] == 'C')
             {
@@ -39,5 +63,7 @@ void	click_left(t_long *index)
             index->count1 -= 76;
 			mlx_put_image_to_window(index->mlx, index->win, index->img5, index->count1, index->count2);
             mlx_put_image_to_window(index->mlx, index->win, index->img3, index->count1, index->count2);
+		    mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
+		    mlx_string_put(index->mlx, index->win, 0, 30, 1000, ft_itoa(a));
         }
 }

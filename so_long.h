@@ -39,6 +39,7 @@ typedef struct	s_long {
     char    *str1;
     char    **str2;
 	char	**tab;
+	char	**tab1;
     char    *file;
     int     count1;
     int     count2;
@@ -46,11 +47,16 @@ typedef struct	s_long {
     int     line;
     int     a;
     int     b;
+    int     eny;
 }	t_long;
 
 int f, p;
 int m, n;
 int x, y;
+int a;
+
+int pos1;
+int pos2;
 
 int    check_size(char *file);
 void	sec_check(char *file);
@@ -70,6 +76,8 @@ void	click_left(t_long *index);
 int     ft_exit(char **tab);
 char	*ft_itoa(int n);
 char	*ft_strjoin(char const *s1, char const *s2);
+int		find_position_index_k(char **tab);
+int		find_position_line_K(char **tab);
 //void	utils_move_down(t_long *index);
 
 #endif

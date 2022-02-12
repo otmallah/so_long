@@ -65,3 +65,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strcat(str, (char *)s2);
 	return (str);
 }
+
+int main(void)
+{
+	int a = 15;
+	char *c = ft_itoa(a);
+	char *str = ft_strjoin(strdup("ana"), c);
+	printf("%s \n", str);
+}

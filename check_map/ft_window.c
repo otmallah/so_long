@@ -22,8 +22,9 @@ void ft_window(char *file)
 	{
 		while(index.str[index.x])
 		{
-			if (index.str[index.x] != '0' && index.str[index.x] != '1' && index.str[index.x] != 'E' && index.str[index.x] != 'C' && index.str[index.x] != 'P')
+			if (index.str[index.x] != '0' && index.str[index.x] != '1' && index.str[index.x] != 'E' && index.str[index.x] != 'C' && index.str[index.x] != 'P' && index.str[index.x] != 'K')
 			{
+				puts("j");
 				perror(" hh 3afrite ");
 				exit(1);
 			}

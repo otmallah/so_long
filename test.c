@@ -76,9 +76,16 @@ int	ft_exit(char **tab)
 int     key_hook(int keycode, t_long *index)
 {
 	if (index->a == 0)
+	{
 		index->tab = key_event(index->file, index);
+		index->tab1 = key_event(index->file, index);
+	}
+	printf("%s \n", index->tab1[1]);
 	if (index->a != 0 && index->b != 0)
 		index->tab[index->a][index->b] = '0';
+	pos2 = find_position_index_k(index->tab1);
+	pos1 = find_position_line_K(index->tab1);
+	printf("%d , %d\n" , pos2, pos1);
     if (keycode == 124)
 		click_right(index);
     else if (keycode == 123)
@@ -90,22 +97,6 @@ int     key_hook(int keycode, t_long *index)
 	else if (keycode == 53)
 		exit(1);
     return 0;
-}
-int x, y;
-
-int loop_hook(t_long *index)
-{
-	mlx_clear_window(index->mlx, index->win);
-    mlx_put_image_to_window(index->mlx, index->win, index->img2, x, y);
-	mlx_clear_window(index->mlx, index->win);
-    mlx_put_image_to_window(index->mlx, index->win, index->img7, x, y);
-	mlx_clear_window(index->mlx, index->win);
-    mlx_put_image_to_window(index->mlx, index->win, index->img8, x,y);
-	mlx_clear_window(index->mlx, index->win);
-    mlx_put_image_to_window(index->mlx, index->win, index->img9, x,y);
-	mlx_clear_window(index->mlx, index->win);
-    mlx_put_image_to_window(index->mlx, index->win, index->img10, x, y);
-	return 0;
 }
 
 int main(int ac, char **av)
@@ -133,11 +124,11 @@ int main(int ac, char **av)
     index.img6 = mlx_xpm_file_to_image(index.mlx, "./test/DOR.xpm", &index.x, &index.y);
     index.img7 = mlx_xpm_file_to_image(index.mlx, "./test/eats2.xpm", &index.x, &index.y);
     index.img8 = mlx_xpm_file_to_image(index.mlx, "./test/eats3.xpm", &index.x, &index.y);
-    index.img9 = mlx_xpm_file_to_image(index.mlx, "./test/eats4.xpm", &index.x, &index.y);
-    index.img10 = mlx_xpm_file_to_image(index.mlx, "./test/eats5.xpm", &index.x, &index.y);
+    index.img9 = mlx_xpm_file_to_image(index.mlx, "./test/DEATH2.xpm", &index.x, &index.y);
+    index.img10 = mlx_xpm_file_to_image(index.mlx, "./test/Death.xpm", &index.x, &index.y);
     index.img11 = mlx_xpm_file_to_image(index.mlx, "./test/any.xpm", &index.x, &index.y);
-    check_event(&index, av[1]);
+	index.eny = 1;
+	check_event(&index, av[1]);
     mlx_key_hook(index.win, key_hook, &index);
-	//mlx_loop_hook(index.mlx, loop_hook, &index);
 	mlx_loop(index.mlx);
 }

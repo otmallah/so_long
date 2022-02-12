@@ -4,9 +4,10 @@
 char	*utils_move_down(void)
 {
 	char *str;
-	static int a;
+	static int a = 152;
 	char *c = ft_itoa(a);
 	str = ft_strjoin("move num : ", c);
+    printf("%s 95\n", str);
 	a++;
 	return str;
 }
@@ -14,12 +15,7 @@ char	*utils_move_down(void)
 int main(void)
 {
     int a = 1;
-    while (a < 100)
-    {
         char *c = utils_move_down();
         printf("%s \n", c);
         a++;
-    }
-    // char *str = ft_strjoin("mouve number ", c);
-    // printf("%s \n", str);
 }
