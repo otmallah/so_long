@@ -17,7 +17,7 @@ void	test4(t_long *index)
    // printf("%d , %d\n" , x, y );
 		mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
 		mlx_put_image_to_window(index->mlx, index->win, index->img9, x, y);
-		mlx_put_image_to_window(index->mlx, index->win, index->img10, 700, 300);
+		mlx_put_image_to_window(index->mlx, index->win, index->img12, 700, 300);
 		index->eny = 0;
 }
 
@@ -63,6 +63,6 @@ void	click_left(t_long *index)
 			mlx_put_image_to_window(index->mlx, index->win, index->img5, index->count1, index->count2);
             mlx_put_image_to_window(index->mlx, index->win, index->img3, index->count1, index->count2);
 		    mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
-		    mlx_string_put(index->mlx, index->win, 0, 30, 1000, ft_itoa(a));
+		    mlx_string_put(index->mlx, index->win, 0, 30, 0xFFFFFF, ft_itoa(a));
         }
 }

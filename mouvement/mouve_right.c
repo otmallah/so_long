@@ -17,7 +17,7 @@
 void	test2(t_long *index)
 {
 		mlx_put_image_to_window(index->mlx, index->win, index->img9, index->count1, index->count2);
-		mlx_put_image_to_window(index->mlx, index->win, index->img10, 700, 300);
+		mlx_put_image_to_window(index->mlx, index->win, index->img12, 700, 300);
 		index->eny = 0;
 }
 

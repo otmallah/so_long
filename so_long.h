@@ -34,6 +34,7 @@ typedef struct	s_long {
     void    *img9;
     void    *img10;
     void    *img11;
+    void    *img12;
     int     x, y,  i,e,fd;
     char    *str;
     char    *str1;
@@ -57,6 +58,7 @@ int m, n;
 int xeny, yeny;
 int a;
 int x, y;
+int xani, yani;
 //int to, ti, ta, te;
 
 

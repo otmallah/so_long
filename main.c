@@ -16,21 +16,39 @@ void	mouvement(t_long *index)
     	mlx_put_image_to_window(index->mlx, index->win, index->img2, x, y);
 	}
 }
-int x;
+int x = 15;
 int y;
 
 int key_hook(t_long *index)
 {
-	//mlx_clear_window(index->mlx, index->win);
-   	mlx_put_image_to_window(index->mlx, index->win, index->img2, x, y);
-    mlx_put_image_to_window(index->mlx, index->win, index->img7, x, y);
-	mlx_clear_window(index->mlx, index->win);
-    mlx_put_image_to_window(index->mlx, index->win, index->img8, x,y);
-	mlx_clear_window(index->mlx, index->win);
-    mlx_put_image_to_window(index->mlx, index->win, index->img9, x,y);
-	mlx_clear_window(index->mlx, index->win);
-    mlx_put_image_to_window(index->mlx, index->win, index->img10, x, y);
-	x += 1;
+	if (x >= 15)
+	{
+		mlx_clear_window(index->mlx, index->win);
+		mlx_put_image_to_window(index->mlx, index->win, index->img2, 0, 0);
+	}
+	if (x >= 30)
+	{
+		mlx_clear_window(index->mlx, index->win);
+		mlx_put_image_to_window(index->mlx, index->win, index->img7, 0, 0);
+	}
+	if (x >= 45)
+	{
+		mlx_clear_window(index->mlx, index->win);
+		mlx_put_image_to_window(index->mlx, index->win, index->img8, 0, 0);	
+	}
+	if (x >= 60)
+	{
+		mlx_clear_window(index->mlx, index->win);
+		mlx_put_image_to_window(index->mlx, index->win, index->img9, 0, 0);
+	}
+	if (x >= 75)
+	{
+		mlx_clear_window(index->mlx, index->win);
+		mlx_put_image_to_window(index->mlx, index->win, index->img10, 0, 0);
+	}
+	x++;
+	if (x == 90)
+		x = 0;
 	return 0;
 }
 

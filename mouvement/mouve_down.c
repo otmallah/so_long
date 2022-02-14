@@ -15,7 +15,7 @@
 void	test3(t_long *index)
 {
 		mlx_put_image_to_window(index->mlx, index->win, index->img9, index->count1, index->count2);
-		mlx_put_image_to_window(index->mlx, index->win, index->img10, 700, 300);
+		mlx_put_image_to_window(index->mlx, index->win, index->img12, 700, 300);
 		index->eny = 0;
 }
 
@@ -23,7 +23,6 @@ void	enemy_move_down(t_long *index)
 {
 	if (index->tab1[index->pos1 + 1][index->pos2] != '1' && index->tab1[index->pos1 + 1][index->pos2] != 'C')
 	{
-		//index->tab[index->pos1][index->pos2] = '0';
 		index->tab1[index->pos1][index->pos2] = '0';
 		index->pos1++;
 		mlx_put_image_to_window(index->mlx, index->win, index->img5, xeny, yeny);
