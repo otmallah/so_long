@@ -78,14 +78,11 @@ int     key_hook(int keycode, t_long *index)
 	if (index->a == 0)
 	{
 		index->tab = key_event(index->file, index);
-		index->tab1 = key_event(index->file, index);
+		index->tab1 = key_event_enemy(index->file, index);
 	}
-	printf("%s \n", index->tab1[1]);
+	//printf("%s \n", index->tab1[1]);
 	if (index->a != 0 && index->b != 0)
 		index->tab[index->a][index->b] = '0';
-	pos2 = find_position_index_k(index->tab1);
-	pos1 = find_position_line_K(index->tab1);
-	printf("%d , %d\n" , pos2, pos1);
     if (keycode == 124)
 		click_right(index);
     else if (keycode == 123)

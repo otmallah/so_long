@@ -48,6 +48,8 @@ typedef struct	s_long {
     int     a;
     int     b;
     int     eny;
+    int pos1;
+    int pos2;
 }	t_long;
 
 int f, p;
@@ -55,8 +57,6 @@ int m, n;
 int x, y;
 int a;
 
-int pos1;
-int pos2;
 
 int    check_size(char *file);
 void	sec_check(char *file);
@@ -78,6 +78,7 @@ char	*ft_itoa(int n);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		find_position_index_k(char **tab);
 int		find_position_line_K(char **tab);
+char   **key_event_enemy(char *file, t_long *index);
 //void	utils_move_down(t_long *index);
 
 #endif

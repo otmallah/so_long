@@ -21,21 +21,6 @@ void	test4(t_long *index)
 		index->eny = 0;
 }
 
-void    enemy3(t_long *index)
-{
-    if (index->tab1[pos1][pos2 - 1] != '1')
-    {
-        puts("o");
-        pos2--;
-        mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
-        x -= 76;
-        mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
-        mlx_put_image_to_window(index->mlx, index->win, index->img11, x, y);
-    }
-    else
-        puts("l");
-}
-
 void	click_left(t_long *index)
 {
 	if (index->tab[index->line][index->idx- 1] == 'E')
@@ -47,10 +32,9 @@ void	click_left(t_long *index)
 				exit(1);
 			}
 		}
-    	if(index->tab[index->line][index->idx - 1] == 'K')
+    	if(index->tab1[index->line][index->idx - 1] == 'K')
 		    test4(index);
-        //enemy3(index);
-        if (index->tab[index->line][index->idx - 1] != '1' && index->tab[index->line][index->idx - 1] != 'E' && index->tab[index->line][index->idx - 1] != 'K'  && index->eny == 1)
+        if (index->tab[index->line][index->idx - 1] != '1' && index->tab[index->line][index->idx - 1] != 'E' && index->eny == 1)
         {
             a++;
             index->idx--;
