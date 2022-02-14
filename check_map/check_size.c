@@ -12,7 +12,18 @@
 
 #include "../so_long.h"
 
-int    check_size(char *file)
+void	check_size_2(int y, int x, int e)
+{
+	if (y == x && e < y)
+		y++;
+	else
+	{
+		perror("The map must be rectangular.");
+		exit(1);
+	}
+}
+
+void    check_size(char *file)
 {
 	t_long index;
 
@@ -20,7 +31,7 @@ int    check_size(char *file)
 	index.fd = open(file , O_RDONLY);
 	index.str = get_next_line(index.fd);
 	if (index.str == NULL)
-		return (0);
+		exit(1);
 	index.x = strlen(index.str);
 	while(index.str != NULL) 
 	{
@@ -35,16 +46,6 @@ int    check_size(char *file)
 		index.e++;
 	}
 	if (index.str == NULL)
-	{
-		if (index.y == index.x && index.e < index.y)
-			index.y++;
-		else
-		{
-			perror("The map must be rectangular.");
-			exit(1);
-		}
-	}
+		check_size_2(index.y, index.x, index.e);
 	free(index.str);
-	close(index.fd);
-	return 0;
 }

@@ -44,11 +44,6 @@ char   **key_event_enemy(char *file, t_long *index)
         str = get_next_line(fd);
     }
     ft_wall(str2, index);
-    if ( index->idx == 0 && index->line == 0)
-	{
-		index->pos1 = find_position_index(str2);
-		index->pos2 = find_position_line(str2);
-	}
     free(str);
     close(fd);
 	return str2;

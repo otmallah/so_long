@@ -36,8 +36,8 @@ void    check_event(t_long *index, char *file)
 			}
 			else if (str[a] == 'K')
 			{
-				x = i;
-				y = j;
+				xeny = i;
+				yeny = j;
 				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
                 mlx_put_image_to_window(index->mlx, index->win, index->img11, i, j);				
 			}
@@ -80,9 +80,17 @@ int     key_hook(int keycode, t_long *index)
 		index->tab = key_event(index->file, index);
 		index->tab1 = key_event_enemy(index->file, index);
 	}
-	//printf("%s \n", index->tab1[1]);
+	if (index->pos1 == 0 && index->pos2 == 0)
+	{
+		index->pos1 = find_position_line_K(index->tab1);
+		index->pos2 = find_position_index_k(index->tab1);
+	}
+	printf("line = %d , index = %d \n", index->pos1, index->pos2);
 	if (index->a != 0 && index->b != 0)
+	{
 		index->tab[index->a][index->b] = '0';
+		index->tab1[index->a][index->b] = '0';
+	}
     if (keycode == 124)
 		click_right(index);
     else if (keycode == 123)

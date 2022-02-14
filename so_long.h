@@ -54,11 +54,13 @@ typedef struct	s_long {
 
 int f, p;
 int m, n;
-int x, y;
+int xeny, yeny;
 int a;
+int x, y;
+//int to, ti, ta, te;
 
 
-int    check_size(char *file);
+void    check_size(char *file);
 void	sec_check(char *file);
 void    ft_window(char *file);
 int	    ft_number_line(char *file);

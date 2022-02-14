@@ -14,11 +14,25 @@
 
 void	test4(t_long *index)
 {
-    printf("%d , %d\n" , x, y );
+   // printf("%d , %d\n" , x, y );
 		mlx_put_image_to_window(index->mlx, index->win, index->img5, x, y);
 		mlx_put_image_to_window(index->mlx, index->win, index->img9, x, y);
 		mlx_put_image_to_window(index->mlx, index->win, index->img10, 700, 300);
 		index->eny = 0;
+}
+
+void    enemy_mouve_left(t_long *index)
+{
+    if (index->tab1[index->pos1][index->pos2 - 1] != '1' && index->tab1[index->pos1][index->pos2 - 1] != 'C')
+	{
+		index->tab1[index->pos1][index->pos2] = '0';
+		index->pos2--;
+		mlx_put_image_to_window(index->mlx, index->win, index->img5, xeny, yeny);
+		xeny -= 76;
+		mlx_put_image_to_window(index->mlx, index->win, index->img5, xeny, yeny);
+		mlx_put_image_to_window(index->mlx, index->win, index->img11, xeny, yeny);
+		index->tab1[index->pos1][index->pos2] = 'K';
+	}
 }
 
 void	click_left(t_long *index)
@@ -32,12 +46,13 @@ void	click_left(t_long *index)
 				exit(1);
 			}
 		}
-    	if(index->tab1[index->line][index->idx - 1] == 'K')
-		    test4(index);
         if (index->tab[index->line][index->idx - 1] != '1' && index->tab[index->line][index->idx - 1] != 'E' && index->eny == 1)
         {
             a++;
+            enemy_mouve_left(index);
             index->idx--;
+            if ((index->line) == index->pos1 && (index->idx) == index->pos2)
+                test4(index);
             if (index->tab[index->line][index->idx] == 'C')
             {
                 index->a = index->line;
