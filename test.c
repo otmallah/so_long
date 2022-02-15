@@ -101,32 +101,39 @@ int     key_hook(int keycode, t_long *index)
 
 int loop_hook(t_long *index)
 {
-	if (xani >= 15)
-	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img5, 76, 76);
-		mlx_put_image_to_window(index->mlx, index->win, index->img7, 75, 75);
-	}
-	if (xani >= 30)
-	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img5, 76, 76);
-		mlx_put_image_to_window(index->mlx, index->win, index->img8, 76, 76);
-	}
-	if (xani >= 45)
-	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img5, 76, 76);
-		mlx_put_image_to_window(index->mlx, index->win, index->img9, 76, 76);	
-	}
-	if (xani >= 60)
-	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img5, 76, 76);
-		mlx_put_image_to_window(index->mlx, index->win, index->img10, 76, 76);
-	}
-	xani++;
-	if (xani == 75)
-		xani = 0;
+	ft_animation(index);
+	//ft_enemy_animation(index);
 	return 0;
 }
 
+int		number_coin(t_long *index)
+{
+	int i;
+	int j;
+	int a;
+
+	i = 0;
+	j = 0;
+	a = 0;
+	while(index->tab[j])
+	{
+		while (index->tab[j][i])
+		{
+			if (index->tab[j][i] == 'C')
+				a++;
+			i++;
+		}
+		i = 0;
+		j++;
+	}
+	return a;
+}
+
+int	ft_close(void)
+{
+	exit(0);
+	return 0;
+}
 int main(int ac, char **av)
 {
 	t_long 	index;
@@ -152,15 +159,22 @@ int main(int ac, char **av)
     index.img4 = mlx_xpm_file_to_image(index.mlx, "./test/door.xpm", &index.x, &index.y);
     index.img5 = mlx_xpm_file_to_image(index.mlx, "./test/grass.xpm", &index.x, &index.y);
     index.img6 = mlx_xpm_file_to_image(index.mlx, "./test/DOR.xpm", &index.x, &index.y);
-    index.img7 = mlx_xpm_file_to_image(index.mlx, "./test/chek1.xpm", &index.x, &index.y);
-    index.img8 = mlx_xpm_file_to_image(index.mlx, "./test/check2.xpm", &index.x, &index.y);
-    index.img9 = mlx_xpm_file_to_image(index.mlx, "./test/check3.xpm", &index.x, &index.y);
-    index.img10 = mlx_xpm_file_to_image(index.mlx, "./test/check4.xpm", &index.x, &index.y);
+    //index.img7 = mlx_xpm_file_to_image(index.mlx, "./test/eats2.xpm", &index.x, &index.y);
+    index.img8 = mlx_xpm_file_to_image(index.mlx, "./test/anim1.xpm", &index.x, &index.y);
+    index.img9 = mlx_xpm_file_to_image(index.mlx, "./test/anim2.xpm", &index.x, &index.y);
+    index.img10 = mlx_xpm_file_to_image(index.mlx, "./test/anim3.xpm", &index.x, &index.y);
+    index.img13 = mlx_xpm_file_to_image(index.mlx, "./test/anim4.xpm", &index.x, &index.y);
+    index.img14 = mlx_xpm_file_to_image(index.mlx, "./test/anim5.xpm", &index.x, &index.y);
+    index.img15 = mlx_xpm_file_to_image(index.mlx, "./test/anim6.xpm", &index.x, &index.y);
+    index.img16 = mlx_xpm_file_to_image(index.mlx, "./test/anim7.xpm", &index.x, &index.y);
+    index.img17 = mlx_xpm_file_to_image(index.mlx, "./test/anim8.xpm", &index.x, &index.y);
     index.img12 = mlx_xpm_file_to_image(index.mlx, "./test/Death.xpm", &index.x, &index.y);
     index.img11 = mlx_xpm_file_to_image(index.mlx, "./test/any.xpm", &index.x, &index.y);
 	index.eny = 1;
 	check_event(&index, av[1]);
 	mlx_loop_hook(index.mlx, loop_hook, &index);
     mlx_key_hook(index.win, key_hook, &index);
+	mlx_hook(index.win, 17, 0, ft_close, &index);
+	system("leaks so_long");
 	mlx_loop(index.mlx);
 }

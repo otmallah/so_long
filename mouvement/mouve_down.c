@@ -49,8 +49,8 @@ void	click_down(t_long *index)
 	}
     if (index->tab[index->line + 1][index->idx] != '1' && index->tab[index->line + 1][index->idx] != 'E' && index->eny == 1)
     {
-		a++;
 		enemy_move_down(index);
+		a++;
         index->line++;
 		if ((index->line) == index->pos1 && index->idx == index->pos2)
 			test3(index);
@@ -63,7 +63,11 @@ void	click_down(t_long *index)
 	    index->count2 += 76;
 		mlx_put_image_to_window(index->mlx, index->win, index->img5, index->count1, index->count2);
         mlx_put_image_to_window(index->mlx, index->win, index->img3, index->count1, index->count2);
-		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
-		mlx_string_put(index->mlx, index->win, 0, 30, 0xFFFFFF, ft_itoa(a));
+		mlx_put_image_to_window(index->mlx, index->win, index->img1, 76, 0);
+		mlx_string_put(index->mlx, index->win, 80, 30, 0xFFFFFF, ft_itoa(a));
+		int r = number_coin(index);
+		printf("%d \n", r);
+		mlx_put_image_to_window(index->mlx, index->win, index->img1, 380, 0);
+		mlx_string_put(index->mlx, index->win, 1000, 30, 1000, ft_itoa(r));
    }
 }

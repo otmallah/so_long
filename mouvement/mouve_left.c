@@ -23,12 +23,12 @@ void	test4(t_long *index)
 
 void    enemy_mouve_left(t_long *index)
 {
-    if (index->tab1[index->pos1][index->pos2 - 1] != '1' && index->tab1[index->pos1][index->pos2 - 1] != 'C')
+    if (index->tab1[index->pos1][index->pos2 + 1] != '1' && index->tab1[index->pos1][index->pos2 + 1] != 'C')
 	{
 		index->tab1[index->pos1][index->pos2] = '0';
-		index->pos2--;
+		index->pos2++;
 		mlx_put_image_to_window(index->mlx, index->win, index->img5, xeny, yeny);
-		xeny -= 76;
+		xeny += 76;
 		mlx_put_image_to_window(index->mlx, index->win, index->img5, xeny, yeny);
 		mlx_put_image_to_window(index->mlx, index->win, index->img11, xeny, yeny);
 		index->tab1[index->pos1][index->pos2] = 'K';
@@ -48,10 +48,10 @@ void	click_left(t_long *index)
 		}
         if (index->tab[index->line][index->idx - 1] != '1' && index->tab[index->line][index->idx - 1] != 'E' && index->eny == 1)
         {
+           enemy_mouve_left(index);
             a++;
-            enemy_mouve_left(index);
             index->idx--;
-            if ((index->line) == index->pos1 && (index->idx) == index->pos2)
+            if ((index->line) == index->pos1 && (index->idx + 1 ) == index->pos2)
                 test4(index);
             if (index->tab[index->line][index->idx] == 'C')
             {
@@ -62,7 +62,11 @@ void	click_left(t_long *index)
             index->count1 -= 76;
 			mlx_put_image_to_window(index->mlx, index->win, index->img5, index->count1, index->count2);
             mlx_put_image_to_window(index->mlx, index->win, index->img3, index->count1, index->count2);
-		    mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
-		    mlx_string_put(index->mlx, index->win, 0, 30, 0xFFFFFF, ft_itoa(a));
+		    mlx_put_image_to_window(index->mlx, index->win, index->img1, 76, 0);
+		    mlx_string_put(index->mlx, index->win, 80, 30, 0xFFFFFF, ft_itoa(a));
+		int r = number_coin(index);
+		printf("%d \n", r);
+		mlx_put_image_to_window(index->mlx, index->win, index->img1, 380, 0);
+		mlx_string_put(index->mlx, index->win, 1000, 30, 1000, ft_itoa(r));
         }
 }
