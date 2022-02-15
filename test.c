@@ -101,8 +101,8 @@ int     key_hook(int keycode, t_long *index)
 
 int loop_hook(t_long *index)
 {
-	ft_animation(index);
-	//ft_enemy_animation(index);
+	ft_animation_player(index);
+	ft_animation_coin(index);
 	return 0;
 }
 
@@ -170,6 +170,11 @@ int main(int ac, char **av)
     index.img17 = mlx_xpm_file_to_image(index.mlx, "./test/anim8.xpm", &index.x, &index.y);
     index.img12 = mlx_xpm_file_to_image(index.mlx, "./test/Death.xpm", &index.x, &index.y);
     index.img11 = mlx_xpm_file_to_image(index.mlx, "./test/any.xpm", &index.x, &index.y);
+    index.iimg2 = mlx_xpm_file_to_image(index.mlx, "./test/eats.xpm", &index.x, &index.y);
+	index.iimg7 = mlx_xpm_file_to_image(index.mlx, "./test/eats2.xpm", &index.x, &index.y);
+    index.iimg8 = mlx_xpm_file_to_image(index.mlx, "./test/eats3.xpm", &index.x, &index.y);
+    index.iimg9 = mlx_xpm_file_to_image(index.mlx, "./test/eats4.xpm", &index.x, &index.y);
+    index.iimg10 = mlx_xpm_file_to_image(index.mlx, "./test/eats5.xpm", &index.x, &index.y);
 	index.eny = 1;
 	check_event(&index, av[1]);
 	mlx_loop_hook(index.mlx, loop_hook, &index);

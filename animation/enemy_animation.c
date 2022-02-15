@@ -13,30 +13,12 @@
 
 #include "../so_long.h"
 
-void    ft_enemy_animation(t_long *index)
+void    ft_coin_animation_eats(t_long *index)
 {
-    if (index->yani >= 0)
-    {
-        mlx_put_image_to_window(index->mlx, index->win, index->img5, xeny, yeny);
-        mlx_put_image_to_window(index->mlx, index->win, index->img11, xeny, yeny);
-    }
-    if (index->yani >=20)
-    {
-        mlx_put_image_to_window(index->mlx, index->win, index->img5, xeny, yeny);
-        if (index->yani == 20)
-            xeny += 76;
-        mlx_put_image_to_window(index->mlx, index->win, index->img5, xeny, yeny);
-        mlx_put_image_to_window(index->mlx, index->win, index->img11, xeny, yeny);
-    }
-    if (index->yani >= 40)
-    {
-        mlx_put_image_to_window(index->mlx, index->win, index->img5, xeny, yeny);
-        if (index->yani == 40)
-            xeny -= 76;
-        mlx_put_image_to_window(index->mlx, index->win, index->img5, xeny, yeny);
-        mlx_put_image_to_window(index->mlx, index->win, index->img11, xeny, yeny);  
-    }
-    if(index->yani == 60)
-        index->yani = 0;
-    index->yani++;
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    while ()
 }

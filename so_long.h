@@ -40,6 +40,11 @@ typedef struct	s_long {
     void    *img15;
     void    *img16;
     void    *img17;
+    void    *iimg7;
+    void    *iimg2;
+    void    *iimg8;
+    void    *iimg9;
+    void    *iimg10;
     int     x, y,  i,e,fd;
     char    *str;
     char    *str1;
@@ -57,6 +62,7 @@ typedef struct	s_long {
     int pos1;
     int pos2;
     int xani, yani;
+    int pok;
 }	t_long;
 
 int f, p;
@@ -86,7 +92,8 @@ char	*ft_strjoin(char const *s1, char const *s2);
 int		find_position_index_k(char **tab);
 int		find_position_line_K(char **tab);
 char   **key_event_enemy(char *file, t_long *index);
-void    ft_animation(t_long *index);
+void    ft_animation_player(t_long *index);
+void    ft_animation_coin(t_long *index);
 void    ft_enemy_animation(t_long *index);
 int		number_coin(t_long *index);
 //void	utils_move_down(t_long *index);

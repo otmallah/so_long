@@ -47,13 +47,18 @@ void	click_down(t_long *index)
 			exit(1);
 		}
 	}
+	int r = number_coin(index);
+	mlx_put_image_to_window(index->mlx, index->win, index->img1, 228, 0);
+	mlx_string_put(index->mlx, index->win, 240, 30, 0xFFFFFF, ft_itoa(r));
     if (index->tab[index->line + 1][index->idx] != '1' && index->tab[index->line + 1][index->idx] != 'E' && index->eny == 1)
     {
-		enemy_move_down(index);
+		//enemy_move_down(index);
 		a++;
         index->line++;
-		if ((index->line) == index->pos1 && index->idx == index->pos2)
+		if (index->tab[index->line][index->idx] == 'K')
 			test3(index);
+		// 	exit(1);
+		// if ((index->line) == index->pos1 && index->idx == index->pos2)
         if (index->tab[index->line][index->idx] == 'C')
         {
             index->a = index->line;
@@ -65,9 +70,6 @@ void	click_down(t_long *index)
         mlx_put_image_to_window(index->mlx, index->win, index->img3, index->count1, index->count2);
 		mlx_put_image_to_window(index->mlx, index->win, index->img1, 76, 0);
 		mlx_string_put(index->mlx, index->win, 80, 30, 0xFFFFFF, ft_itoa(a));
-		int r = number_coin(index);
-		printf("%d \n", r);
-		mlx_put_image_to_window(index->mlx, index->win, index->img1, 380, 0);
-		mlx_string_put(index->mlx, index->win, 1000, 30, 1000, ft_itoa(r));
+		mlx_string_put(index->mlx, index->win, 240, 30, 0xFFFFFF, ft_itoa(r));
    }
 }

@@ -13,7 +13,7 @@
 
 #include "../so_long.h"
 
-void    ft_animation(t_long *index)
+void    ft_animation_player(t_long *index)
 {
     if (index->xani >= 15)
 	{
