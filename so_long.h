@@ -81,7 +81,7 @@ int		find_position_index_k(char **tab);
 int		find_position_line_K(char **tab);
 char   **key_event_enemy(char *file, t_long *index);
 void    ft_animation_player(t_long *index);
-void    ft_animation_coin(t_long *index);
+void    ft_animation_coin(t_long *index, int i, int j);
 void    ft_enemy_animation(t_long *index);
 int		number_coin(t_long *index);
 //void	utils_move_down(t_long *index);

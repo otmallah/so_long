@@ -1,6 +1,7 @@
 #include "so_long.h"
 
-void    check_event(t_long *index, char *file)
+
+int    check_event(t_long *index)
 {
     int i, j, a, b;
     while (index->tab[a] != NULL)
@@ -45,6 +46,7 @@ void    check_event(t_long *index, char *file)
         i = 0;
         j += 76;
     }
+	return 0;
 }
 
 int	ft_exit(char **tab)
@@ -102,7 +104,7 @@ int loop_hook(t_long *index)
 	mlx_put_image_to_window(index->mlx, index->win, index->img1, 228, 0);
 	mlx_string_put(index->mlx, index->win, 240, 30, 0xFFFFFF, ft_itoa(r));
 	ft_animation_player(index);
-	ft_animation_coin(index);
+	ft_animation_coin(index , 152, 0);
 	return 0;
 }
 
@@ -176,7 +178,7 @@ int main(int ac, char **av)
     index.iimg9 = mlx_xpm_file_to_image(index.mlx, "./test/eats4.xpm", &index.x, &index.y);
     index.iimg10 = mlx_xpm_file_to_image(index.mlx, "./test/eats5.xpm", &index.x, &index.y);
 	index.eny = 1;
-	check_event(&index, av[1]);
+	check_event(&index);
 	mlx_loop_hook(index.mlx, loop_hook, &index);
     mlx_key_hook(index.win, key_hook, &index);
 	mlx_hook(index.win, 17, 0, ft_close, &index);
