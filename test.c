@@ -2,53 +2,48 @@
 
 void    check_event(t_long *index, char *file)
 {
-    int i, j, a, fd;
-    char *str;
-
-    fd = open(file, O_RDONLY);
-    str = get_next_line(fd);
-    while (str != NULL)
+    int i, j, a, b;
+    while (index->tab[a] != NULL)
     {
-        while (str[a])
+        while (index->tab[a][b])
         {
-            if (str[a] == '1')
+            if (index->tab[a][b] == '1')
                 mlx_put_image_to_window(index->mlx, index->win, index->img1, i, j);
-            else if (str[a] == '0')
+            else if (index->tab[a][b] == '0')
 				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
-            else if (str[a] == 'C')
+            else if (index->tab[a][b] == 'C')
 			{
 				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
-                mlx_put_image_to_window(index->mlx, index->win, index->img2 , i, j);
+                mlx_put_image_to_window(index->mlx, index->win, index->img2, i, j);
 			}
-            else if (str[a] == 'P')
+            else if (index->tab[a][b] == 'P')
             {
                 index->count1 = i;
                 index->count2 = j;
 				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
                 mlx_put_image_to_window(index->mlx, index->win, index->img3, i, j);
             }
-            else if (str[a] == 'E')
+            else if (index->tab[a][b] == 'E')
 			{
 				f = i;
 				p = j;
 				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
                 mlx_put_image_to_window(index->mlx, index->win, index->img4, i, j);
 			}
-			else if (str[a] == 'K')
+			else if (index->tab[a][b] == 'K')
 			{
 				xeny = i;
 				yeny = j;
 				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
                 mlx_put_image_to_window(index->mlx, index->win, index->img11, i, j);				
 			}
-            a++;
+            b++;
             i +=76;
         }
-        a = 0;
+		b = 0;
+        a++;
         i = 0;
         j += 76;
-		free(str);
-        str = get_next_line(fd);
     }
 }
 
@@ -99,8 +94,13 @@ int     key_hook(int keycode, t_long *index)
     return 0;
 }
 
+int		number_coin(t_long *index);
+
 int loop_hook(t_long *index)
 {
+	int r = number_coin(index);
+	mlx_put_image_to_window(index->mlx, index->win, index->img1, 228, 0);
+	mlx_string_put(index->mlx, index->win, 240, 30, 0xFFFFFF, ft_itoa(r));
 	ft_animation_player(index);
 	ft_animation_coin(index);
 	return 0;

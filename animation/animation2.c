@@ -15,7 +15,7 @@ void    ft_animation_coin(t_long *index)
 	}
 	if (index->pok >= 30)
 	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img1,152, 0);
+		mlx_put_image_to_window(index->mlx, index->win, index->img1, 152, 0);
 		mlx_put_image_to_window(index->mlx, index->win, index->iimg8, 152, 0);	
 	}
 	if (index->pok >= 45)
@@ -31,4 +31,4 @@ void    ft_animation_coin(t_long *index)
 	index->pok++;
 	if (index->pok == 75)
 		index->pok = 0;
-}
+} 
