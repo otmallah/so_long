@@ -10,13 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../so_long_bonus.h"
 
-int		find_position_index_bonus(char **tab)
+int	find_position_index_bonus(char **tab)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -25,19 +24,19 @@ int		find_position_index_bonus(char **tab)
 		while (tab[j][i])
 		{
 			if (tab[j][i] == 'P')
-				return i;
+				return (i);
 			i++;
 		}
 		i = 0;
 		j++;
 	}
-	return 0;
+	return (0);
 }
 
-int		find_position_line_bonus(char **tab)
+int	find_position_line_bonus(char **tab)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -46,39 +45,39 @@ int		find_position_line_bonus(char **tab)
 		while (tab[j][i])
 		{
 			if (tab[j][i] == 'P')
-				return j;
+				return (j);
 			i++;
 		}
 		i = 0;
 		j++;
 	}
-	return 0;
+	return (0);
 }
 
 void	ft_wall_bonus(char **tab, t_long *index)
 {
-	int		fd = open(index->file , O_RDONLY);
-	char	*str;
-	int		i = 0;
-	int		j = 0;
-	int		a = 0;
+	int		i;
+	int		j;
+	int		a;
 
-	str = get_next_line(fd);
-	while (str != NULL)
+	i = 0;
+	j = 0;
+	a = 0;
+	index->fd = open(index->file, O_RDONLY);
+	index->str = get_next_line(index->fd);
+	while (index->str != NULL)
 	{
-		while(str[i])
+		while (index->str[i])
 		{
-			tab[j][a] = str[i];
+			tab[j][a] = index->str[i];
 			i++;
 			a++;
 		}
 		i = 0;
 		a = 0;
 		j++;
-		free(str);
-		str = get_next_line(fd);
+		free(index->str);
+		index->str = get_next_line(index->fd);
 	}
-	free(str);
 	tab[j] = NULL;
-	close(fd);
 }

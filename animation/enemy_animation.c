@@ -12,14 +12,14 @@
 
 #include "../so_long_bonus.h"
 
-void    ft_enemy_animation(t_long *index)
+void	ft_enemy_animation(t_long *id)
 {
-	if (index->yani >= 0)
+	if (id->yi >= 0)
 	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img5, index->xeny, index->yeny);
-		mlx_put_image_to_window(index->mlx, index->win, index->img11, index->xeny, index->yeny);
+		mlx_put_image_to_window(id->mlx, id->win, id->img5, id->xy, id->yy);
+		mlx_put_image_to_window(id->mlx, id->win, id->img11, id->xy, id->yy);
 	}
-	if (index->yani == 15)
-		index->yani = 0;
-	index->yani++;
+	if (id->yi == 15)
+		id->yi = 0;
+	id->yi++;
 }

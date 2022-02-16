@@ -12,56 +12,56 @@
 
 #include "../so_long_bonus.h"
 
-void	continue_drw(t_long *index);
+void	continue_drw(t_long *id);
 
-void	ft_animation_player(t_long *index)
+void	ft_animation_player(t_long *id)
 {
-	if (index->xani >= 15)
+	if (id->xi >= 15)
 	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
-		mlx_put_image_to_window(index->mlx, index->win, index->img8, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img1, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img8, 0, 0);
 	}
-	if (index->xani >= 30)
+	if (id->xi >= 30)
 	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
-		mlx_put_image_to_window(index->mlx, index->win, index->img9, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img1, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img9, 0, 0);
 	}
-	if (index->xani >= 45)
+	if (id->xi >= 45)
 	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
-		mlx_put_image_to_window(index->mlx, index->win, index->img10, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img1, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img10, 0, 0);
 	}
-	if (index->xani >= 60)
+	if (id->xi >= 60)
 	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
-		mlx_put_image_to_window(index->mlx, index->win, index->img13, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img1, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img13, 0, 0);
 	}
-	continue_drw(index);
-	index->xani++;
-	if (index->xani == 125)
-		index->xani = 0;
+	continue_drw(id);
+	id->xi++;
+	if (id->xi == 125)
+		id->xi = 0;
 }
 
-void	continue_drw(t_long *index)
+void	continue_drw(t_long *id)
 {
-	if (index->xani >= 75)
+	if (id->xi >= 75)
 	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
-		mlx_put_image_to_window(index->mlx, index->win, index->img14, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img1, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img14, 0, 0);
 	}
-	if (index->xani >= 90)
+	if (id->xi >= 90)
 	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
-		mlx_put_image_to_window(index->mlx, index->win, index->img15, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img1, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img15, 0, 0);
 	}
-	if (index->xani >= 105)
+	if (id->xi >= 105)
 	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
-		mlx_put_image_to_window(index->mlx, index->win, index->img16, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img1, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img16, 0, 0);
 	}
-	if (index->xani >= 120)
+	if (id->xi >= 120)
 	{
-		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
-		mlx_put_image_to_window(index->mlx, index->win, index->img17, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img1, 0, 0);
+		mlx_put_image_to_window(id->mlx, id->win, id->img17, 0, 0);
 	}
 }

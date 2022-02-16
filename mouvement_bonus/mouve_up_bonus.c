@@ -10,42 +10,50 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../so_long_bonus.h"
 
-void	test(t_long *index)
+void	test(t_long *id)
 {
-	mlx_put_image_to_window(index->mlx, index->win, index->img12, 1000, 300);
-	index->eny = 0;
+	mlx_put_image_to_window(id->mlx, id->win, id->img12, 1000, 300);
+	id->eny = 0;
 }
 
-void	click_up_bonus(t_long *index)
+void	ft_bon4(t_long	*id);
+
+void	click_up_bonus(t_long *id)
 {
-	if (index->tab[index->line - 1][index->idx] == 'E')
+	if (id->tab[id->line - 1][id->idx] == 'E')
 	{
-		index->e = ft_exit(index->tab);
-		if (index->e == 0)
-		{
-			free(index->tab);
+		id->e = ft_exit(id->tab);
+		if (id->e == 0)
 			exit(1);
-		}
 	}
-    if (index->tab[index->line - 1][index->idx] != '1' && index->tab[index->line - 1][index->idx] != 'E' && index->eny == 1)
-    {
-		index->num_mv++;
-		if (index->tab[index->line - 1][index->idx] == 'K')
-			test(index);
-    	index->line--;
-        if (index->tab[index->line][index->idx] == 'C')
-        {
-            index->a = index->line;
-            index->b = index->idx;
-        }
-		mlx_put_image_to_window(index->mlx, index->win, index->img5, index->countb1, index->countb2);
-        index->countb2 -= 76;
-		mlx_put_image_to_window(index->mlx, index->win, index->img5, index->countb1, index->countb2);
-        mlx_put_image_to_window(index->mlx, index->win, index->img3, index->countb1, index->countb2);
-		mlx_put_image_to_window(index->mlx, index->win, index->img1, 76, 0);
-		mlx_string_put(index->mlx, index->win, 80, 30, 0xFFFFFF, ft_itoa(index->num_mv));
-    }
+	if (id->tab[id->line - 1][id->idx] != '1'
+		&& id->tab[id->line - 1][id->idx] != 'E' && id->eny == 1)
+	{
+		id->num_mv++;
+		if (id->tab[id->line - 1][id->idx] == 'K')
+			test(id);
+		id->line--;
+		if (id->tab[id->line][id->idx] == 'C')
+		{
+			id->a = id->line;
+			id->b = id->idx;
+		}
+		mlx_put_image_to_window(id->mlx, id->win, id->img5, id->cb1, id->cb2);
+		id->cb2 -= 76;
+		mlx_put_image_to_window(id->mlx, id->win, id->img5, id->cb1, id->cb2);
+		mlx_put_image_to_window(id->mlx, id->win, id->img3, id->cb1, id->cb2);
+		ft_bon4(id);
+	}
+}
+
+void	ft_bon4(t_long	*id)
+{
+	char	*str;
+
+	mlx_put_image_to_window(id->mlx, id->win, id->img1, 76, 0);
+	str = ft_itoa(id->num_mv);
+	mlx_string_put(id->mlx, id->win, 80, 30, 0xFFFFFF, str);
+	free(str);
 }

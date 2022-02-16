@@ -12,28 +12,29 @@
 
 #include "../so_long.h"
 
-void	click_left(t_long *index)
+void	click_left(t_long *id)
 {
-	if (index->tab[index->line1][index->idx1 - 1] == 'E')
+	if (id->tab[id->line1][id->idx1 - 1] == 'E')
 	{
-		index->e = ft_exit(index->tab);
-		if (index->e == 0)
+		id->e = ft_exit(id->tab);
+		if (id->e == 0)
 		{
-			free(index->tab);
+			free(id->tab);
 			exit(1);
 		}
 	}
-    if (index->tab[index->line1][index->idx1 - 1] != '1' && index->tab[index->line1][index->idx1 - 1] != 'E')
-    {
-        index->idx1--;
-        if (index->tab[index->line1][index->idx1] == 'C')
-        {
-            index->a = index->line1;
-            index->b = index->idx1;
-        }
-		mlx_put_image_to_window(index->mlx, index->win, index->img5, index->count1, index->count2);
-        index->count1 -= 76;
-		mlx_put_image_to_window(index->mlx, index->win, index->img5, index->count1, index->count2);
-        mlx_put_image_to_window(index->mlx, index->win, index->img3, index->count1, index->count2);
-    }
+	if (id->tab[id->line1][id->idx1 - 1] != '1'
+		&& id->tab[id->line1][id->idx1 - 1] != 'E')
+	{
+		id->idx1--;
+		if (id->tab[id->line1][id->idx1] == 'C')
+		{
+			id->a = id->line1;
+			id->b = id->idx1;
+		}
+		mlx_put_image_to_window(id->mlx, id->win, id->img5, id->c1, id->c2);
+		id->c1 -= 76;
+		mlx_put_image_to_window(id->mlx, id->win, id->img5, id->c1, id->c2);
+		mlx_put_image_to_window(id->mlx, id->win, id->img3, id->c1, id->c2);
+	}
 }

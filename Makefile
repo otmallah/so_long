@@ -11,7 +11,7 @@ AR = ar -rc
 
 RM = @rm -f
 
-FILES =  so_long.c get/get_next_line.c check_map/check_size.c check_map/complete_map.c \
+FILES =  so_long.c get/get_next_line.c check_map/check_size.c  \
 		check_map/complete_wall.c check_map/ft_window.c check_map/key_event.c \
 		check_map/number_line_in_map.c check_map/position.c  size_window/size_height.c \
 		size_window/size_width.c  mouvement/mouve_down.c mouvement/mouve_left.c \

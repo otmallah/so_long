@@ -34,6 +34,7 @@ char	**key_event_bonus(char *file, t_long *index)
 		str = get_next_line(index->fd);
 	}
 	ft_wall_bonus(str2, index);
+	free(str);
 	return (str2);
 }
 

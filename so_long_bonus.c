@@ -19,8 +19,8 @@ int    check_event(t_long *index)
 			}
             else if (index->tab[a][b] == 'P')
             {
-                index->countb1 = i;
-                index->countb2 = j;
+                index->cb1 = i;
+                index->cb2 = j;
 				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
                 mlx_put_image_to_window(index->mlx, index->win, index->img3, i, j);
             }
@@ -31,8 +31,8 @@ int    check_event(t_long *index)
 			}
 			else if (index->tab[a][b] == 'K')
 			{
-				index->xeny = i;
-				index->yeny = j;
+				index->xy = i;
+				index->yy = j;
 				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
                 mlx_put_image_to_window(index->mlx, index->win, index->img11, i, j);				
 			}
@@ -72,14 +72,19 @@ int		number_coin(t_long *index)
 
 int loop_hook(t_long *index)
 {
+    char *str;
+    int r;
+
 	if (index->poss1 == 0 && index->poss2 == 0)
 	{
 		index->poss1 = find_position_line_K(index->tab1);
 		index->poss2 = find_position_index_k(index->tab1);
 	}
-	int r = number_coin(index);
+	r = number_coin(index);
+    str = ft_itoa(r);
 	mlx_put_image_to_window(index->mlx, index->win, index->img1, 228, 0);
-	mlx_string_put(index->mlx, index->win, 240, 30, 0xFFFFFF, ft_itoa(r));
+	mlx_string_put(index->mlx, index->win, 240, 30, 0xFFFFFF, str);
+    free(str);
 	ft_animation_player(index);
 	ft_animation_coin(index , 152, 0);
 	ft_enemy_animation(index);
@@ -179,10 +184,9 @@ int main(int ac, char **av)
     index.img17 = mlx_xpm_file_to_image(index.mlx, "./test/anim8.xpm", &index.x, &index.y);
 	index.eny = 1;
 	check_event(&index);
-	printf("line = %d , index = %d \n", index.poss1, index.poss2);
 	mlx_loop_hook(index.mlx, loop_hook, &index);
     mlx_key_hook(index.win, key_hook, &index);
 	mlx_hook(index.win, 17, 0, ft_close, &index);
-	system("leaks so_long");
+//	system("leaks so_long");
 	mlx_loop(index.mlx);
 }

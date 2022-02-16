@@ -15,10 +15,11 @@
 int	ft_number_line_bonus(char *file)
 {
 	char	*test;
-	int 	i;
+	int		i;
+	int		fd;
 
 	i = 0;
-	int fd = open(file , O_RDONLY);
+	fd = open(file, O_RDONLY);
 	test = get_next_line(fd);
 	while (test != NULL)
 	{
@@ -27,5 +28,5 @@ int	ft_number_line_bonus(char *file)
 		test = get_next_line(fd);
 	}
 	close(fd);
-	return i;
+	return (i);
 }
