@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
-void	check_size_2(int y, int x, int e)
+void	check_size_bonus2(int y, int x, int e)
 {
 	if (y == x && e < y)
 		y++;
@@ -23,7 +23,7 @@ void	check_size_2(int y, int x, int e)
 	}
 }
 
-void    check_size(char *file)
+void    check_size_bonus(char *file)
 {
 	t_long index;
 
@@ -46,6 +46,6 @@ void    check_size(char *file)
 		index.e++;
 	}
 	if (index.str == NULL)
-		check_size_2(index.y, index.x, index.e);
+		check_size_bonus2(index.y, index.x, index.e);
 	free(index.str);
 }

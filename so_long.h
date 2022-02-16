@@ -21,18 +21,11 @@ typedef struct	s_long {
     void    *img8;
     void    *img9;
     void    *img10;
-    void    *img11;
-    void    *img12;
     void    *img13;
     void    *img14;
     void    *img15;
     void    *img16;
     void    *img17;
-    void    *iimg7;
-    void    *iimg2;
-    void    *iimg8;
-    void    *iimg9;
-    void    *iimg10;
     int     x, y,  i,e,fd;
     char    *str;
     char    *str1;
@@ -44,23 +37,18 @@ typedef struct	s_long {
     int     count2;
     int     idx;
     int     line;
+    int     num_mv;
     int     a;
     int     b;
-    int     eny;
-    int pos1;
-    int pos2;
-    int xani, yani;
-    int pok;
 }	t_long;
 
-int f, p;
 int m, n;
 int xeny, yeny;
 int a;
 int x, y;
 
 void    check_size(char *file);
-void	sec_check(char *file);
+void	sec_check(char *file, t_long *index);
 void    ft_window(char *file);
 int	    ft_number_line(char *file);
 int		ft_size_height(char *file);
@@ -76,14 +64,7 @@ void	click_up(t_long *index);
 void	click_left(t_long *index);
 int     ft_exit(char **tab);
 char	*ft_itoa(int n);
-char	*ft_strjoin(char const *s1, char const *s2);
-int		find_position_index_k(char **tab);
-int		find_position_line_K(char **tab);
 char   **key_event_enemy(char *file, t_long *index);
-void    ft_animation_player(t_long *index);
-void    ft_animation_coin(t_long *index, int i, int j);
-void    ft_enemy_animation(t_long *index);
-int		number_coin(t_long *index);
 //void	utils_move_down(t_long *index);
 
 #endif

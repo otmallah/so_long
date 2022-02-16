@@ -10,12 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../so_long_bonus.h"
 
-#include "../so_long.h"
+void	continue_drw(t_long *index);
 
-void    ft_animation_player(t_long *index)
+void	ft_animation_player(t_long *index)
 {
-    if (index->xani >= 15)
+	if (index->xani >= 15)
 	{
 		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
 		mlx_put_image_to_window(index->mlx, index->win, index->img8, 0, 0);
@@ -28,34 +29,39 @@ void    ft_animation_player(t_long *index)
 	if (index->xani >= 45)
 	{
 		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
-		mlx_put_image_to_window(index->mlx, index->win, index->img10, 0, 0);	
+		mlx_put_image_to_window(index->mlx, index->win, index->img10, 0, 0);
 	}
 	if (index->xani >= 60)
 	{
 		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
 		mlx_put_image_to_window(index->mlx, index->win, index->img13, 0, 0);
 	}
-    if (index->xani >= 75)
+	continue_drw(index);
+	index->xani++;
+	if (index->xani == 125)
+		index->xani = 0;
+}
+
+void	continue_drw(t_long *index)
+{
+	if (index->xani >= 75)
 	{
 		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
 		mlx_put_image_to_window(index->mlx, index->win, index->img14, 0, 0);
 	}
-    if (index->xani >= 90)
+	if (index->xani >= 90)
 	{
 		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
 		mlx_put_image_to_window(index->mlx, index->win, index->img15, 0, 0);
 	}
-    if (index->xani >= 105)
+	if (index->xani >= 105)
 	{
 		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
 		mlx_put_image_to_window(index->mlx, index->win, index->img16, 0, 0);
 	}
-    if (index->xani >= 120)
+	if (index->xani >= 120)
 	{
 		mlx_put_image_to_window(index->mlx, index->win, index->img1, 0, 0);
 		mlx_put_image_to_window(index->mlx, index->win, index->img17, 0, 0);
 	}
-	index->xani++;
-	if (index->xani == 125)
-		index->xani = 0;
 }

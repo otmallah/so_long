@@ -13,40 +13,38 @@
 
 #include "../so_long.h"
 
-void	sec_check(char *file)
+void	check12(char *str)
 {
-	t_long	index;
+	int x;
+
+	x = 0;
+	while (str[x])
+	{
+		if (str[x] != '1')
+		{
+			puts("ERROR1");
+			exit(1);
+		}
+		x++;
+	}
+}
+
+void	sec_check(char *file, t_long *index)
+{
 	int		res;
 	int		a;
-
-	index.fd = open(file , O_RDONLY);
-	index.str = get_next_line(index.fd);
-	if (index.str == NULL)
-		exit(1);
-	index.x = 0;
+	int x = 0;
+	int y = 0;
+	int j = 0;
 	res = ft_number_line(file);
 	a = res;
 	while (res > 0)
 	{
 		if (res == 1 || res == a)
-		{
-			while (index.str[index.x])
-			{
-				if (index.str[index.x] != '1')
-				{
-					puts("ERROR1");
-					exit(1);
-				}
-				index.x++;
-			}
-			index.x = 0;
-		}
-		index.y = strlen(index.str) - 1;
-		if (index.str[0] == '1' && index.str[index.y] == '1')
-		{
-			free(index.str);
-			index.str = get_next_line(index.fd);
-		}
+			check12(index->tab[x]);
+		j = strlen(index->tab[x]) - 1;
+		if (index->tab[x][0] == '1' && index->tab[x][j] == '1')
+			x++;
 		else
 		{
 			puts("ERROR2");
@@ -54,6 +52,4 @@ void	sec_check(char *file)
 		}
 		res--;
 	}
-	free(index.str);
-	close(index.fd);
 }

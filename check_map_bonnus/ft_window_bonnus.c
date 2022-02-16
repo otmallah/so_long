@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../so_long_bonus.h"
 
-void ft_window(char *file)
+void ft_window_bonus(char *file)
 {
 	t_long index;
+
 	index.fd = open(file , O_RDONLY);
 	index.str = get_next_line(index.fd);
 	index.x = 0;
@@ -24,7 +25,6 @@ void ft_window(char *file)
 		{
 			if (index.str[index.x] != '0' && index.str[index.x] != '1' && index.str[index.x] != 'E' && index.str[index.x] != 'C' && index.str[index.x] != 'P' && index.str[index.x] != 'K')
 			{
-				puts("j");
 				perror(" hh 3afrite ");
 				exit(1);
 			}
