@@ -34,6 +34,7 @@ char	**key_event(char *file, t_long *index)
 		str = get_next_line(index->fd);
 	}
 	ft_wall(str2, index);
+	free(str);
 	return (str2);
 }
 
@@ -59,5 +60,6 @@ char	**key_event_enemy(char *file, t_long *index)
 		str = get_next_line(index->fd);
 	}
 	ft_wall(str2, index);
+	free(str);
 	return (str2);
 }

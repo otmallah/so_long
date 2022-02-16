@@ -135,6 +135,7 @@ int main(int ac, char **av)
 		index.file = av[1];
 		index.tab = key_event(index.file, &index);
 		index.tab1 = key_event_enemy(index.file, &index);
+		complete_map(&index);
 		ft_window(av[1]);
 		check_size(av[1]);
 		sec_check(av[1], &index);

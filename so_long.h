@@ -75,6 +75,7 @@ void	click_left(t_long *index);
 int		ft_exit(char **tab);
 char	*ft_itoa(int n);
 char	**key_event_enemy(char *file, t_long *index);
+void    complete_map(t_long *index);
 //void	utils_move_down(t_long *index);
 
 #endif

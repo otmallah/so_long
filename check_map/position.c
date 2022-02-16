@@ -80,4 +80,5 @@ void	ft_wall(char **tab, t_long *index)
 		index->str = get_next_line(index->fd);
 	}
 	tab[j] = NULL;
+	free(index->str);
 }
