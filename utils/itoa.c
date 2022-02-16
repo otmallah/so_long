@@ -10,13 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../so_long.h"
 
 void	*ft_calloc(size_t n, size_t c)
 {
-	void		*str;
-	size_t		i;
+	void	*str;
+	size_t	i;
 
 	i = 0;
 	str = malloc(n * c);

@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../so_long.h"
 
-int		ft_size_width(char *file)
+int	ft_size_width(char *file)
 {
-	t_long index;
+	t_long	index;
 
-	index.fd = open(file , O_RDONLY);
+	index.fd = open(file, O_RDONLY);
 	index.str = get_next_line(index.fd);
 	index.x = 0;
 	index.e = 0;
@@ -27,5 +26,5 @@ int		ft_size_width(char *file)
 		index.x++;
 	}
 	free(index.str);
-	return index.e;
+	return (index.e);
 }

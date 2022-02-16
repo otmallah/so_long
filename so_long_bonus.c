@@ -77,7 +77,7 @@ int loop_hook(t_long *index)
 
 	if (index->poss1 == 0 && index->poss2 == 0)
 	{
-		index->poss1 = find_position_line_K(index->tab1);
+		index->poss1 = find_position_line_k(index->tab1);
 		index->poss2 = find_position_index_k(index->tab1);
 	}
 	r = number_coin(index);

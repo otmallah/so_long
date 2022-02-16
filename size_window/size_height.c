@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../so_long.h"
 
-int		ft_size_height(char *file)
+int	ft_size_height(char *file)
 {
-	t_long index;
+	t_long	index;
 
 	index.fd = open(file, O_RDONLY);
 	index.str = get_next_line(index.fd);
@@ -26,5 +25,5 @@ int		ft_size_height(char *file)
 		free(index.str);
 		index.str = get_next_line(index.fd);
 	}
-	return index.e;
+	return (index.e);
 }

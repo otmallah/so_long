@@ -89,7 +89,7 @@ int		ft_size_width(char *file);
 int		ft_exit(char **tab);
 char	*ft_itoa(int n);
 int		find_position_index_k(char **tab);
-int		find_position_line_K(char **tab);
+int	find_position_line_k(char	**tab);
 char	**key_event_enemy(char *file, t_long *index);
 void	ft_animation_player(t_long *index);
 void	ft_animation_coin(t_long *index, int i, int j);
