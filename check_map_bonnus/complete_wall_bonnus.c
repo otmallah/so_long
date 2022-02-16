@@ -10,19 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../so_long_bonus.h"
 
 void	check12_bonus(char *str)
 {
-	int x;
+	int	x;
 
 	x = 0;
 	while (str[x])
 	{
 		if (str[x] != '1')
 		{
-			puts("ERROR1");
+			write (1, "ERROR1\n", 7);
 			exit(1);
 		}
 		x++;
@@ -33,10 +32,13 @@ void	sec_check_bonus(char *file, t_long *index)
 {
 	int		res;
 	int		a;
-	int 	x = 0;
-	int		y = 0;
-	int		j = 0;
+	int		x;
+	int		y;
+	int		j;
 
+	x = 0;
+	y = 0;
+	j = 0;
 	res = ft_number_line_bonus(file);
 	a = res;
 	while (res > 0)
@@ -48,8 +50,8 @@ void	sec_check_bonus(char *file, t_long *index)
 			x++;
 		else
 		{
-			puts("ERROR2");
-			exit(1);			
+			write (1, "ERROR2\n", 7);
+			exit(1);
 		}
 		res--;
 	}

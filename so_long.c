@@ -1,11 +1,11 @@
 #include "so_long.h"
 
-
 int    check_event(t_long *index)
 {
-    int i, j, a, b;
+    int i = 0, j = 0, a = 0, b = 0;
     while (index->tab[a] != NULL)
     {
+		puts("kssssssdddd");
         while (index->tab[a][b])
         {
             if (index->tab[a][b] == '1')
@@ -26,8 +26,6 @@ int    check_event(t_long *index)
             }
             else if (index->tab[a][b] == 'E')
 			{
-				f = i;
-				p = j;
 				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
                 mlx_put_image_to_window(index->mlx, index->win, index->img4, i, j);
 			}
@@ -65,10 +63,11 @@ int	ft_exit(char **tab)
 
 int     key_hook(int keycode, t_long *index)
 {
-	if ( index->idx == 0 && index->line == 0)
+	printf("%s \n" , index->tab[0]);
+	if ( index->idx1 == 0 && index->line1 == 0)
 	{
-		index->idx = find_position_index(index->tab);
-		index->line = find_position_line(index->tab);
+		index->idx1 = find_position_index(index->tab);
+		index->line1 = find_position_line(index->tab);
 	}
 	if (index->a != 0 && index->b != 0)
 	{
@@ -98,30 +97,35 @@ int main(int ac, char **av)
 {
 	t_long 	index;
 
-    index.fd = open(av[1], O_RDONLY);
-	index.str = get_next_line(index.fd);
-	if (index.str == NULL || index.str[0] == '\0')
-		exit(1);
-	index.file = av[1];
-	index.tab = key_event(index.file, &index);
-	index.tab1 = key_event_enemy(index.file, &index);
-	ft_complete_map(av[1], &index);
-	ft_window(av[1]);
-	check_size(av[1]);
-	sec_check(av[1], &index);
-	index.mlx = mlx_init();
-	index.e = ft_size_width(av[1]);
-	index.i = ft_size_height(av[1]);
-	index.win = mlx_new_window(index.mlx, index.e, index.i, " lo3ba za3ma ");
-    index.img1 = mlx_xpm_file_to_image(index.mlx, "./test/wall.xpm", &index.x, &index.y);
-    index.img2 = mlx_xpm_file_to_image(index.mlx, "./test/eats.xpm", &index.x, &index.y);
-    index.img3 = mlx_xpm_file_to_image(index.mlx, "./test/player.xpm", &index.x, &index.y);
-    index.img4 = mlx_xpm_file_to_image(index.mlx, "./test/door.xpm", &index.x, &index.y);
-    index.img5 = mlx_xpm_file_to_image(index.mlx, "./test/grass.xpm", &index.x, &index.y);
-    index.img6 = mlx_xpm_file_to_image(index.mlx, "./test/DOR.xpm", &index.x, &index.y);
-	check_event(&index);
-    mlx_key_hook(index.win, key_hook, &index);
-	mlx_hook(index.win, 17, 0, ft_close, &index);
-	system("leaks so_long");
-	mlx_loop(index.mlx);
+	if (ac == 2)
+	{
+		index.fd = open(av[1], O_RDONLY);
+		index.str = get_next_line(index.fd);
+		if (index.str == NULL || index.str[0] == '\0')
+			exit(1);
+		index.file = av[1];
+		index.tab = key_event(index.file, &index);
+		index.tab1 = key_event_enemy(index.file, &index);
+		ft_complete_map(av[1], &index);
+		ft_window(av[1]);
+		check_size(av[1]);
+		sec_check(av[1], &index);
+		index.mlx = mlx_init();
+		index.e = ft_size_width(av[1]);
+		index.i = ft_size_height(av[1]);
+		index.win = mlx_new_window(index.mlx, index.e, index.i, " lo3ba za3ma ");
+		index.img1 = mlx_xpm_file_to_image(index.mlx, "./test/wall.xpm", &index.x, &index.y);
+		index.img2 = mlx_xpm_file_to_image(index.mlx, "./test/eats.xpm", &index.x, &index.y);
+		index.img3 = mlx_xpm_file_to_image(index.mlx, "./test/player.xpm", &index.x, &index.y);
+		index.img4 = mlx_xpm_file_to_image(index.mlx, "./test/door.xpm", &index.x, &index.y);
+		index.img5 = mlx_xpm_file_to_image(index.mlx, "./test/grass.xpm", &index.x, &index.y);
+		index.img6 = mlx_xpm_file_to_image(index.mlx, "./test/DOR.xpm", &index.x, &index.y);
+		check_event(&index);
+		mlx_key_hook(index.win, key_hook, &index);
+		mlx_hook(index.win, 17, 0, ft_close, &index);
+		system("leaks so_long");
+		mlx_loop(index.mlx);
+	}
+	else
+		write(1, "more arg\n", 9);
 }

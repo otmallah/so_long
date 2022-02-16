@@ -23,17 +23,17 @@ void	check_size_bonus2(int y, int x, int e)
 	}
 }
 
-void    check_size_bonus(char *file)
+void	check_size_bonus(char *file)
 {
-	t_long index;
+	t_long	index;
 
 	index.e = 0;
-	index.fd = open(file , O_RDONLY);
+	index.fd = open(file, O_RDONLY);
 	index.str = get_next_line(index.fd);
 	if (index.str == NULL)
 		exit(1);
 	index.x = strlen(index.str);
-	while(index.str != NULL) 
+	while (index.str != NULL)
 	{
 		index.y = strlen(index.str);
 		if (index.y != index.x)

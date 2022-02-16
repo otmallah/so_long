@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../so_long.h"
 
 void	check12(char *str)
 {
-	int x;
+	int	x;
 
 	x = 0;
 	while (str[x])
@@ -33,9 +32,13 @@ void	sec_check(char *file, t_long *index)
 {
 	int		res;
 	int		a;
-	int x = 0;
-	int y = 0;
-	int j = 0;
+	int		x;
+	int		y;
+	int		j;
+
+	x = 0;
+	y = 0;
+	j = 0;
 	res = ft_number_line(file);
 	a = res;
 	while (res > 0)
@@ -48,7 +51,7 @@ void	sec_check(char *file, t_long *index)
 		else
 		{
 			puts("ERROR2");
-			exit(1);			
+			exit(1);
 		}
 		res--;
 	}
