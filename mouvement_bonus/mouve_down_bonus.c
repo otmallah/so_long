@@ -20,18 +20,6 @@ void	test3(t_long *id)
 	id->eny = 0;
 }
 
-void	ft_enemy(t_long *id)
-{
-	if (id->tab1[id->poss1 + 1][id->poss2] == '0')
-	{
-		id->poss1++;
-		mlx_put_image_to_window(id->mlx, id->win, id->img5, id->xy, id->yy);
-		id->yy += 76;
-		mlx_put_image_to_window(id->mlx, id->win, id->img5, id->xy, id->yy);
-		mlx_put_image_to_window(id->mlx, id->win, id->img11, id->xy, id->yy);
-	}
-}
-
 void	click_down_bonus(t_long *id)
 {
 	if (id->tab[id->line + 1][id->idx] == 'E')
@@ -43,11 +31,10 @@ void	click_down_bonus(t_long *id)
 	if (id->tab[id->line + 1][id->idx] != '1'
 		&& id->tab[id->line + 1][id->idx] != 'E' && id->eny == 1)
 	{
-		//ft_enemy(id);
 		id->num_mv++;
-		if (id->tab[id->line + 1][id->idx] == 'K')
-			test3(id);
 		id->line++;
+		if (id->tab[id->line][id->idx] == 'K')
+			test3(id);
 		if (id->tab[id->line][id->idx] == 'C')
 		{
 			id->a = id->line;

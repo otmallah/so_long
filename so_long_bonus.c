@@ -83,7 +83,6 @@ int	loop_hook(t_long *index)
 
 	r = number_coin(index);
 	str = ft_itoa(r);
-	printf("%d  , %d \n", index->posss1, index->posss2);
 	mlx_put_image_to_window(index->mlx, index->win, index->img1, 228, 0);
 	mlx_string_put(index->mlx, index->win, 240, 30, 0xFFFFFF, str);
 	free(str);
@@ -97,10 +96,6 @@ int	main(int ac, char **av)
 {
 	t_long	index;
 
-	index.posss1 = 0;
-	index.posss2 = 0;
-	index.poss1 = 0;
-	index.poss1 = 0;
 	if (ac == 2)
 	{
 		index.fd = open(av[1], O_RDONLY);
@@ -111,13 +106,11 @@ int	main(int ac, char **av)
 		index.file = av[1];
 		index.tab = key_event_bonus(index.file, &index);
 		index.tab1 = key_event_enemy_bonus(index.file, &index);
-		if (index.posss1 == 0 && index.posss2 == 0)
+		if (index.yu == 0 && index.po == 0)
 		{
 			puts("xlkbdgkbdgksbdagbmdgkbj");
-			index.posss2 = find_position_index_k(index.tab1);
-			index.posss2 = find_position_line_k(index.tab1);
-			index.poss1 = find_position_line_k(index.tab1);
-			index.poss2 = find_position_line_k(index.tab1);
+			index.yu = find_position_index_k(index.tab1);
+			index.po = find_position_line_k(index.tab1);
 		}
 		sen_main_bon(&index, av[1]);
 		system("leaks so_long_bonus");

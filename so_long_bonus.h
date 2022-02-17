@@ -21,6 +21,8 @@
 # include "get/get_next_line.h"
 
 typedef struct s_long {
+	int		yu;
+	int		po;
 	void	*mlx;
 	void	*win;
 	int		x;
@@ -58,10 +60,6 @@ typedef struct s_long {
 	int		cb2;
 	int		xy;
 	int		yy;
-	int		posss1;
-	int		posss2;
-	int		poss1;
-	int		poss2;
 	int		idx;
 	int		line;
 	int		eny;
