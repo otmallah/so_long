@@ -58,8 +58,8 @@ typedef struct s_long {
 	int		cb2;
 	int		xy;
 	int		yy;
-	int		poss1;
-	int		poss2;
+	int		posss1;
+	int		posss2;
 	int		idx;
 	int		line;
 	int		eny;
@@ -89,12 +89,13 @@ int		ft_size_width(char *file);
 int		ft_exit(char **tab);
 char	*ft_itoa(int n);
 int		find_position_index_k(char **tab);
-int	find_position_line_k(char	**tab);
+int		find_position_line_k(char	**tab);
 char	**key_event_enemy(char *file, t_long *index);
 void	ft_animation_player(t_long *index);
 void	ft_animation_coin(t_long *index, int i, int j);
 void	ft_enemy_animation(t_long *index);
 int		number_coin(t_long *index);
 void	animation_enemy(t_long *index);
+void    complete_map_bonus(t_long *index);
 
 #endif

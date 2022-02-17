@@ -1,49 +1,70 @@
 
 #include "so_long_bonus.h"
 
+
+
+void	check(char c, t_long *index, int i, int j)
+{
+	if (c == '1')
+		mlx_put_image_to_window(index->mlx, index->win, index->img1, i, j);
+	else if (c == '0')
+		mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
+	else if (c == 'C')
+	{
+		mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
+		mlx_put_image_to_window(index->mlx, index->win, index->img2, i, j);
+	}
+	else if (c == 'P')
+	{
+		index->cb1 = i;
+		index->cb2 = j;
+		mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
+		mlx_put_image_to_window(index->mlx, index->win, index->img3, i, j);
+	}
+	else if (c == 'E')
+	{
+		mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
+		mlx_put_image_to_window(index->mlx, index->win, index->img4, i, j);
+	}
+}
+
+void	ft_check_ev(char *str, t_long *index, int i, int j)
+{
+	int	a;
+
+	a = 0;
+	while (str[a])
+	{
+		check(str[a], index, i, j);
+		if (str[a] == 'K')
+		{
+			index->xy = i;
+			index->yy = j;
+			mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
+            mlx_put_image_to_window(index->mlx, index->win, index->img11, i, j);	
+		}
+		a++;
+		i += 76;
+	}
+}
+
+
 int    check_event(t_long *index)
 {
-    int i, j, a, b;
-    while (index->tab[a] != NULL)
-    {
-        while (index->tab[a][b])
-        {
-            if (index->tab[a][b] == '1')
-                mlx_put_image_to_window(index->mlx, index->win, index->img1, i, j);
-            else if (index->tab[a][b] == '0')
-				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
-            else if (index->tab[a][b] == 'C')
-			{
-				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
-                mlx_put_image_to_window(index->mlx, index->win, index->img2, i, j);
-			}
-            else if (index->tab[a][b] == 'P')
-            {
-                index->cb1 = i;
-                index->cb2 = j;
-				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
-                mlx_put_image_to_window(index->mlx, index->win, index->img3, i, j);
-            }
-            else if (index->tab[a][b] == 'E')
-			{
-				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
-                mlx_put_image_to_window(index->mlx, index->win, index->img4, i, j);
-			}
-			else if (index->tab[a][b] == 'K')
-			{
-				index->xy = i;
-				index->yy = j;
-				mlx_put_image_to_window(index->mlx, index->win, index->img5, i, j);
-                mlx_put_image_to_window(index->mlx, index->win, index->img11, i, j);				
-			}
-            b++;
-            i +=76;
-        }
-		b = 0;
-        a++;
-        i = 0;
-        j += 76;
-    }
+	int i;
+	int j;
+	int a;
+
+	a = 0;
+	i = 0;
+	j = 0;
+	while (index->tab[a] != NULL)
+	{
+		ft_check_ev(index->tab[a], index, i, j);
+		a++;
+		i = 0;
+		j += 76;
+	}
 	return 0;
 }
 
@@ -75,11 +96,6 @@ int loop_hook(t_long *index)
     char *str;
     int r;
 
-	if (index->poss1 == 0 && index->poss2 == 0)
-	{
-		index->poss1 = find_position_line_k(index->tab1);
-		index->poss2 = find_position_index_k(index->tab1);
-	}
 	r = number_coin(index);
     str = ft_itoa(r);
 	mlx_put_image_to_window(index->mlx, index->win, index->img1, 228, 0);
@@ -154,6 +170,12 @@ int main(int ac, char **av)
 	index.file = av[1];
 	index.tab = key_event_bonus(index.file, &index);
 	index.tab1 = key_event_enemy_bonus(index.file, &index);
+	if (index.posss1 == 0 && index.posss2 == 0)
+	{
+		index.posss1 = find_position_line_k(index.tab1);
+		index.posss2 = find_position_index_k(index.tab1);
+	}
+	complete_map_bonus(&index);
 	ft_window_bonus(av[1]);
 	check_size_bonus(av[1]);
 	sec_check_bonus(av[1], &index);
@@ -187,6 +209,6 @@ int main(int ac, char **av)
 	mlx_loop_hook(index.mlx, loop_hook, &index);
     mlx_key_hook(index.win, key_hook, &index);
 	mlx_hook(index.win, 17, 0, ft_close, &index);
-//	system("leaks so_long");
+	system("leaks so_long");
 	mlx_loop(index.mlx);
 }

@@ -12,7 +12,7 @@
 
 #include "../so_long_bonus.h"
 
-void	check(t_long *index, int i, int j);
+void	check2(t_long *index, int i, int j);
 
 void	ft_animation_coin(t_long *index, int i, int j)
 {
@@ -36,13 +36,13 @@ void	ft_animation_coin(t_long *index, int i, int j)
 		mlx_put_image_to_window(index->mlx, index->win, index->img1, i, j);
 		mlx_put_image_to_window(index->mlx, index->win, index->iimg9, i, j);
 	}
-	check(index, i, j);
+	check2(index, i, j);
 	index->pok++;
 	if (index->pok == 75)
 		index->pok = 0;
 }
 
-void	check(t_long *index, int i, int j)
+void	check2(t_long *index, int i, int j)
 {
 	if (index->pok >= 60)
 	{

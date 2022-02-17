@@ -28,5 +28,6 @@ int	ft_number_line_bonus(char *file)
 		test = get_next_line(fd);
 	}
 	close(fd);
+	free(test);
 	return (i);
 }

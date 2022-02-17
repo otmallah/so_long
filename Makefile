@@ -23,7 +23,8 @@ BS = so_long_bonus.c get/get_next_line.c check_map_bonnus/check_size_bonnus.c \
 	check_map_bonnus/number_line_in_map_bonnus.c size_window/size_height.c \
 	size_window/size_width.c mouvement_bonus/mouve_down_bonus.c mouvement_bonus/mouve_left_bonus.c \
 	mouvement_bonus/mouve_right_bonus.c mouvement_bonus/mouve_up_bonus.c positin_enemy/position_K.c\
-	utils/itoa.c animation/animation.c animation/animation2.c animation/enemy_animation.c 
+	utils/itoa.c animation/animation.c animation/animation2.c animation/enemy_animation.c  \
+	check_map_bonnus/complete_map_bonus.c 
 
 
 # Colors
