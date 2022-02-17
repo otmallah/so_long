@@ -27,7 +27,6 @@ void	ft_window(char *file)
 				&& index.str[index.x] != 'E' && index.str[index.x] != 'C'
 				&&index.str[index.x] != 'P')
 			{
-				puts("j");
 				perror(" hh 3afrite ");
 				exit(1);
 			}

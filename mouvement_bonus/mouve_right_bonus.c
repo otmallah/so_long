@@ -12,13 +12,25 @@
 
 #include "../so_long_bonus.h"
 
+void	ft_bon3(t_long	*id);
+
 void	test2(t_long *id)
 {
 	mlx_put_image_to_window(id->mlx, id->win, id->img12, 1000, 300);
 	id->eny = 0;
 }
 
-void	ft_bon3(t_long	*id);
+void	ft_enemy3(t_long *id)
+{
+	if (id->tab1[id->poss1][id->poss2 + 1] == '0')
+	{
+		id->poss2++;
+		mlx_put_image_to_window(id->mlx, id->win, id->img5, id->xy, id->yy);
+		id->xy += 76;
+		mlx_put_image_to_window(id->mlx, id->win, id->img5, id->xy, id->yy);
+		mlx_put_image_to_window(id->mlx, id->win, id->img11, id->xy, id->yy);
+	}
+}
 
 void	click_right_bonus(t_long *id)
 {
@@ -31,6 +43,7 @@ void	click_right_bonus(t_long *id)
 	if (id->tab[id->line][id->idx + 1] != '1'
 		&& id->tab[id->line][id->idx + 1] != 'E' && id->eny == 1)
 	{
+		//ft_enemy3(id);
 		id->num_mv++;
 		if (id->tab[id->line][id->idx + 1] == 'K')
 			test2(id);

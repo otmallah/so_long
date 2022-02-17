@@ -75,7 +75,11 @@ void	click_left(t_long *index);
 int		ft_exit(char **tab);
 char	*ft_itoa(int n);
 char	**key_event_enemy(char *file, t_long *index);
-void    complete_map(t_long *index);
-//void	utils_move_down(t_long *index);
+void	complete_map(t_long *index);
+void	images(t_long	*id);
+int		ft_close(void);
+int		key_hook(int keycode, t_long *index);
+void	sec_main(t_long	*index, char *file);
+int		check_event(t_long *index);
 
 #endif

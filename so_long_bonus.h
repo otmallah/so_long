@@ -60,6 +60,8 @@ typedef struct s_long {
 	int		yy;
 	int		posss1;
 	int		posss2;
+	int		poss1;
+	int		poss2;
 	int		idx;
 	int		line;
 	int		eny;
@@ -96,6 +98,14 @@ void	ft_animation_coin(t_long *index, int i, int j);
 void	ft_enemy_animation(t_long *index);
 int		number_coin(t_long *index);
 void	animation_enemy(t_long *index);
-void    complete_map_bonus(t_long *index);
+void	complete_map_bonus(t_long *index);
+void	images_bonus(t_long *i);
+int		ft_exit(char **tab);
+int		key_hook(int keycode, t_long *index);
+int		ft_close(void);
+int		number_coin(t_long *index);
+void	sen_main_bon(t_long *id, char *file);
+int		loop_hook(t_long *index);
+int		check_event(t_long *index);
 
 #endif
