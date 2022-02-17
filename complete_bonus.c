@@ -75,9 +75,9 @@ void	images_bonus(t_long *i)
 	i->img11 = mlx_xpm_file_to_image(i->mlx, "./t/any.xpm", &i->x, &i->y);
 	i->img1 = mlx_xpm_file_to_image(i->mlx, "./t/wall.xpm", &i->x, &i->y);
 	i->img2 = mlx_xpm_file_to_image(i->mlx, "./t/eats.xpm", &i->x, &i->y);
-	i->img3 = mlx_xpm_file_to_image(i->mlx, "./t/player.xpm", &i->x, &i->y);
+	i->img3 = mlx_xpm_file_to_image(i->mlx, "./t/anim1.xpm", &i->x, &i->y);
 	i->img4 = mlx_xpm_file_to_image(i->mlx, "./t/door.xpm", &i->x, &i->y);
-	i->img5 = mlx_xpm_file_to_image(i->mlx, "./t/grass.xpm", &i->x, &i->y);
+	i->img5 = mlx_xpm_file_to_image(i->mlx, "./t/gras.xpm", &i->x, &i->y);
 	i->img6 = mlx_xpm_file_to_image(i->mlx, "./t/DOR.xpm", &i->x, &i->y);
 	i->img8 = mlx_xpm_file_to_image(i->mlx, "./t/anim1.xpm", &i->x, &i->y);
 	i->img9 = mlx_xpm_file_to_image(i->mlx, "./t/anim2.xpm", &i->x, &i->y);

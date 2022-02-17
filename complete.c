@@ -22,9 +22,9 @@ void	images(t_long	*id)
 {
 	id->img1 = mlx_xpm_file_to_image(id->mlx, "./t/wall.xpm", &id->x, &id->y);
 	id->img2 = mlx_xpm_file_to_image(id->mlx, "./t/eats.xpm", &id->x, &id->y);
-	id->img3 = mlx_xpm_file_to_image(id->mlx, "./t/player.xpm", &id->x, &id->y);
+	id->img3 = mlx_xpm_file_to_image(id->mlx, "./t/anim1.xpm", &id->x, &id->y);
 	id->img4 = mlx_xpm_file_to_image(id->mlx, "./t/door.xpm", &id->x, &id->y);
-	id->img5 = mlx_xpm_file_to_image(id->mlx, "./t/grass.xpm", &id->x, &id->y);
+	id->img5 = mlx_xpm_file_to_image(id->mlx, "./t/gras.xpm", &id->x, &id->y);
 	id->img6 = mlx_xpm_file_to_image(id->mlx, "./t/DOR.xpm", &id->x, &id->y);
 }
 
