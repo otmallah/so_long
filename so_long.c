@@ -71,6 +71,7 @@ int	check_event(t_long *index)
 
 int	key_hook(int keycode, t_long *index)
 {
+	printf("%d \n", keycode);
 	if (index->idx1 == 0 && index->line1 == 0)
 	{
 		index->idx1 = find_position_index(index->tab);
@@ -81,13 +82,13 @@ int	key_hook(int keycode, t_long *index)
 		index->tab[index->a][index->b] = '0';
 		index->tab1[index->a][index->b] = '0';
 	}
-	if (keycode == 124)
+	if (keycode == 124 || keycode == 2)
 		click_right(index);
-	else if (keycode == 123)
+	else if (keycode == 123 || keycode == 0)
 		click_left(index);
-	else if (keycode == 126)
+	else if (keycode == 126 || keycode == 13)
 		click_up(index);
-	else if (keycode == 125)
+	else if (keycode == 125 || keycode == 1)
 		click_down(index);
 	else if (keycode == 53)
 		exit(1);
