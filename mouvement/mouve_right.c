@@ -26,6 +26,8 @@ void	click_right(t_long *id)
 	if (id->tab[id->line1][id->idx1 + 1] != '1'
 		&& id->tab[id->line1][id->idx1 + 1] != 'E')
 	{
+		printf("mouve right : %d \n", id->num_mv);
+		id->num_mv++;
 		id->idx1++;
 		if (id->tab[id->line1][id->idx1] == 'C')
 		{

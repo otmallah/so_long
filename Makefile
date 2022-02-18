@@ -16,7 +16,7 @@ FILES =  so_long.c get/get_next_line.c check_map/check_size.c  \
 		check_map/number_line_in_map.c check_map/position.c  size_window/size_height.c \
 		size_window/size_width.c  mouvement/mouve_down.c mouvement/mouve_left.c \
 		mouvement/mouve_right.c mouvement/mouve_up.c check_map/complete_map.c utils/itoa.c \
-		complete.c 
+		complete.c
 
 BS = so_long_bonus.c get/get_next_line.c check_map_bonnus/check_size_bonnus.c \
 	check_map_bonnus/complete_wall_bonnus.c check_map_bonnus/ft_window_bonnus.c \

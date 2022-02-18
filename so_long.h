@@ -81,5 +81,7 @@ int		ft_close(void);
 int		key_hook(int keycode, t_long *index);
 void	sec_main(t_long	*index, char *file);
 int		check_event(t_long *index);
+size_t	ft_strlen(char *str);
+void	*ft_calloc(size_t n, size_t c);
 
 #endif

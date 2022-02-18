@@ -108,12 +108,10 @@ int	main(int ac, char **av)
 		index.tab1 = key_event_enemy_bonus(index.file, &index);
 		if (index.yu == 0 && index.po == 0)
 		{
-			puts("xlkbdgkbdgksbdagbmdgkbj");
 			index.yu = find_position_index_k(index.tab1);
 			index.po = find_position_line_k(index.tab1);
 		}
 		sen_main_bon(&index, av[1]);
-		system("leaks so_long_bonus");
 	}
 	else
 		write (1, "more arg\n", 10);

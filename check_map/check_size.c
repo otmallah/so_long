@@ -32,10 +32,10 @@ void	check_size(char *file)
 	index.str = get_next_line(index.fd);
 	if (index.str == NULL)
 		exit(1);
-	index.x = strlen(index.str);
+	index.x = ft_strlen(index.str);
 	while (index.str != NULL)
 	{
-		index.y = strlen(index.str);
+		index.y = ft_strlen(index.str);
 		if (index.y != index.x)
 		{
 			perror("error");

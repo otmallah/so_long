@@ -24,11 +24,11 @@ char	**key_event(char *file, t_long *index)
 	index->fd = open(file, O_RDONLY);
 	str = get_next_line(index->fd);
 	a = ft_number_line(index->file);
-	str2 = calloc(sizeof(char *), (a + 1));
+	str2 = ft_calloc(sizeof(char *), (a + 1));
 	while (str)
 	{
-		x = strlen(str);
-		str2[i] = calloc(sizeof(char), (x + 1));
+		x = ft_strlen(str);
+		str2[i] = ft_calloc(sizeof(char), (x + 1));
 		i++;
 		free(str);
 		str = get_next_line(index->fd);
@@ -50,11 +50,11 @@ char	**key_event_enemy(char *file, t_long *index)
 	index->fd = open(file, O_RDONLY);
 	str = get_next_line(index->fd);
 	a = ft_number_line(index->file);
-	str2 = calloc(sizeof(char *), (a + 1));
+	str2 = ft_calloc(sizeof(char *), (a + 1));
 	while (str)
 	{
-		x = strlen(str);
-		str2[i] = calloc(sizeof(char), (x + 1));
+		x = ft_strlen(str);
+		str2[i] = ft_calloc(sizeof(char), (x + 1));
 		i++;
 		free(str);
 		str = get_next_line(index->fd);

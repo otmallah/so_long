@@ -28,6 +28,5 @@ void	sen_main_bon(t_long *id, char *file)
 	mlx_loop_hook(id->mlx, loop_hook, id);
 	mlx_key_hook(id->win, key_hook, id);
 	mlx_hook(id->win, 17, 0, ft_close, id);
-	system("leaks so_long");
 	mlx_loop(id->mlx);
 }

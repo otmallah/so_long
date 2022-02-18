@@ -24,14 +24,19 @@ int	map_checke_bonus(char *str)
 	while (str[a])
 	{
 		if (str[a] == 'P')
-			i = 2;
+			i += 2;
 		else if (str[a] == 'C')
 			j = 2;
 		else if (str[a] == 'E')
-			k = 2;
+			k += 2;
 		else if (str[a] == 'K')
-			l = 2;
+			l += 2;
 		a++;
+	}
+	if (i == 4 || k == 4 || l == 4)
+	{
+		write (1, "Please check map\n", 18);
+		exit(1);
 	}
 	return (i + j + k + l);
 }
@@ -51,7 +56,7 @@ void	complete_map_bonus(t_long *index)
 	}
 	if (res != 8)
 	{
-		write (1, "map makamlach\n", 15);
+		write (1, "Please check map\n", 18);
 		exit(1);
 	}
 }

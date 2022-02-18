@@ -45,7 +45,7 @@ void	sec_check_bonus(char *file, t_long *index)
 	{
 		if (res == 1 || res == a)
 			check12_bonus(index->tab[x]);
-		j = strlen(index->tab[x]) - 1;
+		j = ft_strlen(index->tab[x]) - 1;
 		if (index->tab[x][0] == '1' && index->tab[x][j] == '1')
 			x++;
 		else

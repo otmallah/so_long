@@ -49,7 +49,6 @@ void	sec_main(t_long	*index, char *file)
 	check_event(index);
 	mlx_key_hook(index->win, key_hook, index);
 	mlx_hook(index->win, 17, 0, ft_close, index);
-	system("leaks so_long");
 	mlx_loop(index->mlx);
 }
 

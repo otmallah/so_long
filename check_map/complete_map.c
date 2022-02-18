@@ -23,12 +23,17 @@ int	map_checker(char *str)
 	while (str[a])
 	{
 		if (str[a] == 'P')
-			i = 2;
+			i += 2;
 		else if (str[a] == 'C')
 			j = 2;
 		else if (str[a] == 'E')
 			k = 2;
 		a++;
+	}
+	if (i == 4)
+	{
+		write (1, "Please check map\n", 18);
+		exit(1);
 	}
 	return (i + j + k);
 }
@@ -48,7 +53,7 @@ void	complete_map(t_long *index)
 	}
 	if (res != 6)
 	{
-		write (1, "map makamlach\n", 15);
+		write (1, "Please check map\n", 18);
 		exit(1);
 	}
 }
