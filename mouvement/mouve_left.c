@@ -26,7 +26,7 @@ void	click_left(t_long *id)
 	if (id->tab[id->line1][id->idx1 - 1] != '1'
 		&& id->tab[id->line1][id->idx1 - 1] != 'E')
 	{
-		printf("mouve left : %d \n", id->num_mv);
+		ft_printf("mouve left : %d \n", id->num_mv);
 		id->num_mv++;
 		id->idx1--;
 		if (id->tab[id->line1][id->idx1] == 'C')

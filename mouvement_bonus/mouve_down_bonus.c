@@ -31,7 +31,7 @@ void	click_down_bonus(t_long *id)
 	if (id->tab[id->line + 1][id->idx] != '1'
 		&& id->tab[id->line + 1][id->idx] != 'E' && id->eny == 1)
 	{
-		printf("mouve down : %d \n", id->num_mv);
+		ft_printf("mouve down : %d \n", id->num_mv);
 		id->num_mv++;
 		id->line++;
 		if (id->tab[id->line][id->idx] == 'K')

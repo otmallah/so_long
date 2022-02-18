@@ -31,7 +31,7 @@ void	click_right_bonus(t_long *id)
 	if (id->tab[id->line][id->idx + 1] != '1'
 		&& id->tab[id->line][id->idx + 1] != 'E' && id->eny == 1)
 	{
-		printf("mouve right :%d \n", id->num_mv);
+		ft_printf("mouve right :%d \n", id->num_mv);
 		id->num_mv++;
 		id->idx++;
 		if (id->tab[id->line][id->idx] == 'K')

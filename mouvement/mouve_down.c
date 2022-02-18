@@ -26,7 +26,7 @@ void	click_down(t_long *id)
 	if (id->tab[id->line1 + 1][id->idx1] != '1'
 		&& id->tab[id->line1 + 1][id->idx1] != 'E')
 	{
-		printf("mouve down : %d \n", id->num_mv);
+		ft_printf("mouve down : %d \n", id->num_mv);
 		id->num_mv++;
 		id->line1++;
 		if (id->tab[id->line1][id->idx1] == 'C')
