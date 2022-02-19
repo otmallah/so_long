@@ -27,10 +27,10 @@ int	map_checker(char *str)
 		else if (str[a] == 'C')
 			j = 2;
 		else if (str[a] == 'E')
-			k = 2;
+			k += 2;
 		a++;
 	}
-	if (i == 4)
+	if (i == 4 || k == 4)
 	{
 		write (1, "Please check map\n", 18);
 		exit(1);

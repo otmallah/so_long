@@ -105,7 +105,17 @@ int		number_coin(t_long *index);
 void	sen_main_bon(t_long *id, char *file);
 int		loop_hook(t_long *index);
 int		check_event(t_long *index);
-//size_t	ft_strlen(char *str);
 void	*ft_calloc(size_t n, size_t c);
+int		ft_printf(const char *str, ...);
+int		ft_count_int(int num);
+int		decimal(va_list ap);
+int		putstr(va_list las);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr_fd(char *str, int fd);
+size_t	ft_strlen(char const *str);
+int		print_all(char r, va_list po);
+int		ft_printf(const char *str, ...);
+int		ft_count_int(int num);
+void	ft_putchar_fd(char c, int fd);
 
 #endif

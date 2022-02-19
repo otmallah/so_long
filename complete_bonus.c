@@ -24,13 +24,13 @@ int	key_hook(int keycode, t_long *index)
 		index->tab[index->a][index->b] = '0';
 		index->tab1[index->a][index->b] = '0';
 	}
-	if (keycode == 124)
+	if (keycode == 124 || keycode == 2)
 		click_right_bonus(index);
-	else if (keycode == 123)
+	else if (keycode == 123 || keycode == 0)
 		click_left_bonus(index);
-	else if (keycode == 126)
+	else if (keycode == 126 || keycode == 13)
 		click_up_bonus(index);
-	else if (keycode == 125)
+	else if (keycode == 125 || keycode == 1)
 		click_down_bonus(index);
 	else if (keycode == 53)
 		exit(1);

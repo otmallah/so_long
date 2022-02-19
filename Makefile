@@ -27,8 +27,11 @@ BS = so_long_bonus.c get/get_next_line.c check_map_bonnus/check_size_bonnus.c \
 	size_window/size_width.c mouvement_bonus/mouve_down_bonus.c mouvement_bonus/mouve_left_bonus.c \
 	mouvement_bonus/mouve_right_bonus.c mouvement_bonus/mouve_up_bonus.c positin_enemy/position_K.c\
 	utils/itoa.c animation/animation.c animation/animation2.c animation/enemy_animation.c  \
-	check_map_bonnus/complete_map_bonus.c complete_bonus.c complete_bonus2.c Ft_printf/ft_putnbr_fd.c \
-	Ft_printf/ft_nbrlen_int.c Ft_printf/ft_putchar_fd.c
+	check_map_bonnus/complete_map_bonus.c complete_bonus.c complete_bonus2.c \
+	Ft_printf/ft_printf.c  Ft_printf/ft_decimal.c Ft_printf/ft_putnbr_fd.c Ft_printf/ft_nbrlen_int.c \
+	Ft_printf/ft_putchar_fd.c Ft_printf/ft_print_all.c Ft_printf/ft_putstr_fd.c \
+	Ft_printf/ft_print_str.c
+
 
 # Colors
 C_RED = \033[1;31m

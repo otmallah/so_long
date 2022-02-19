@@ -71,7 +71,6 @@ int	check_event(t_long *index)
 
 int	key_hook(int keycode, t_long *index)
 {
-	printf("%d \n", keycode);
 	if (index->idx1 == 0 && index->line1 == 0)
 	{
 		index->idx1 = find_position_index(index->tab);

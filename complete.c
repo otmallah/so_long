@@ -14,7 +14,7 @@
 
 int	ft_close(void)
 {
-	exit(0);
+	exit(1);
 	return (0);
 }
 

@@ -21,7 +21,7 @@ int	ft_size_height(char *file)
 	index.e = 0;
 	while (index.str != NULL)
 	{
-		index.e = index.e + 75;
+		index.e = index.e + 76;
 		free(index.str);
 		index.str = get_next_line(index.fd);
 	}
