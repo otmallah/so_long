@@ -18,7 +18,7 @@ FILES =  so_long.c get/get_next_line.c check_map/check_size.c  \
 		mouvement/mouve_right.c mouvement/mouve_up.c check_map/complete_map.c utils/itoa.c \
 		complete.c Ft_printf/ft_printf.c  Ft_printf/ft_decimal.c Ft_printf/ft_putnbr_fd.c Ft_printf/ft_nbrlen_int.c \
 		Ft_printf/ft_putchar_fd.c Ft_printf/ft_print_all.c Ft_printf/ft_putstr_fd.c \
-		Ft_printf/ft_print_str.c
+		Ft_printf/ft_print_str.c ft_strrchr.c
 
 BS = so_long_bonus.c get/get_next_line.c check_map_bonnus/check_size_bonnus.c \
 	check_map_bonnus/complete_wall_bonnus.c check_map_bonnus/ft_window_bonnus.c \
@@ -30,7 +30,7 @@ BS = so_long_bonus.c get/get_next_line.c check_map_bonnus/check_size_bonnus.c \
 	check_map_bonnus/complete_map_bonus.c complete_bonus.c complete_bonus2.c \
 	Ft_printf/ft_printf.c  Ft_printf/ft_decimal.c Ft_printf/ft_putnbr_fd.c Ft_printf/ft_nbrlen_int.c \
 	Ft_printf/ft_putchar_fd.c Ft_printf/ft_print_all.c Ft_printf/ft_putstr_fd.c \
-	Ft_printf/ft_print_str.c
+	Ft_printf/ft_print_str.c ft_strrchr.c
 
 
 # Colors

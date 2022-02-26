@@ -14,6 +14,11 @@
 
 void	sen_main_bon(t_long *id, char *file)
 {
+	if (id->yu == 0 && id->po == 0)
+	{
+		id->yu = find_position_index_k(id->tab1);
+		id->po = find_position_line_k(id->tab1);
+	}
 	complete_map_bonus(id);
 	ft_window_bonus(file);
 	check_size_bonus(file);
@@ -29,4 +34,16 @@ void	sen_main_bon(t_long *id, char *file)
 	mlx_key_hook(id->win, key_hook, id);
 	mlx_hook(id->win, 17, 0, ft_close, id);
 	mlx_loop(id->mlx);
+}
+
+void	test_ber(char *file)
+{
+	char	*str;
+
+	str = ft_strrchr(file, '.');
+	if (ft_strcmp(str, ".ber") != 0)
+	{
+		write (1, "map should end with .ber", 25);
+		exit(1);
+	}
 }

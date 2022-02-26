@@ -95,6 +95,7 @@ int	loop_hook(t_long *index)
 int	main(int ac, char **av)
 {
 	t_long	index;
+	char	*str;
 
 	if (ac == 2)
 	{
@@ -102,15 +103,11 @@ int	main(int ac, char **av)
 		index.str = get_next_line(index.fd);
 		if (index.str == NULL || index.str[0] == '\0')
 			exit(1);
+		test_ber(av[1]);
 		free(index.str);
 		index.file = av[1];
 		index.tab = key_event_bonus(index.file, &index);
 		index.tab1 = key_event_enemy_bonus(index.file, &index);
-		if (index.yu == 0 && index.po == 0)
-		{
-			index.yu = find_position_index_k(index.tab1);
-			index.po = find_position_line_k(index.tab1);
-		}
 		sen_main_bon(&index, av[1]);
 	}
 	else

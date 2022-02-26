@@ -28,12 +28,27 @@ void	images(t_long	*id)
 	id->img6 = mlx_xpm_file_to_image(id->mlx, "./t/DOR.xpm", &id->x, &id->y);
 }
 
+void	test(char *file)
+{
+	char	*str;
+
+	str = ft_strrchr(file, '.');
+	if (ft_strcmp(str, ".ber") != 0)
+	{
+		write (1, "map should end with .ber", 25);
+		exit(1);
+	}
+}
+
 void	sec_main(t_long	*index, char *file)
 {
+	char	*str;
+
 	index->fd = open(file, O_RDONLY);
 	index->str = get_next_line(index->fd);
 	if (index->str == NULL || index->str[0] == '\0')
 		exit(1);
+	test(file);
 	free(index->str);
 	index->tab = key_event(index->file, index);
 	index->tab1 = key_event_enemy(index->file, index);
@@ -48,7 +63,7 @@ void	sec_main(t_long	*index, char *file)
 	images(index);
 	check_event(index);
 	mlx_key_hook(index->win, key_hook, index);
-	mlx_hook(index->win, 17, 0, ft_close, index);
+	mlx_hook(index->win, 17, 6785657, ft_close, NULL);
 	mlx_loop(index->mlx);
 }
 

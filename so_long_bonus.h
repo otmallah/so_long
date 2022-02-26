@@ -117,5 +117,8 @@ int		print_all(char r, va_list po);
 int		ft_printf(const char *str, ...);
 int		ft_count_int(int num);
 void	ft_putchar_fd(char c, int fd);
+char	*ft_strrchr(char *str, int c);
+int		ft_strcmp(char *s1, char *s2);
+void	test_ber(char *file);
 
 #endif

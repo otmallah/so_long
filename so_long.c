@@ -97,6 +97,7 @@ int	key_hook(int keycode, t_long *index)
 int	main(int ac, char **av)
 {
 	t_long	index;
+	char	*str;
 
 	if (ac == 2)
 	{
